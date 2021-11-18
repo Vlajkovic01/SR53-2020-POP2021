@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SR53_2020_POP2021.model
+{
+    public class Adresa
+    {
+        public int id;
+
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+        public string ulica;
+
+        public string Ulica
+        {
+            get { return ulica; }
+            set { ulica = value; }
+        }
+
+        public string broj;
+
+        public string Broj
+        {
+            get { return broj; }
+            set { broj = value; }
+        }
+
+        public string grad;
+
+        public string Grad
+        {
+            get { return grad; }
+            set { grad = value; }
+        }
+
+        public string drzava;
+
+        public string Drzava
+        {
+            get { return drzava; }
+            set { drzava = value; }
+        }
+
+        public Adresa()
+        {
+
+        }
+
+        public Adresa(int id, string ulica, string broj, string grad, string drzava)
+        {
+            ID = id;
+            Ulica = ulica;
+            Broj = broj;
+            Grad = grad;
+            Drzava = drzava;
+        }
+
+        public string AdresaZaUpisUFajl()
+        {
+            return ID + "|" + Ulica + "|" + Broj + "|" + Grad + "|" + Drzava;
+        }
+
+        public override string ToString()
+        {
+            return "Ulica='" + Ulica + '\'' + ", Broj='" + Broj + '\'' + ", Grad='" + Grad + '\'' + ", Drzava='" + Drzava + '\'' + ", ID='" + ID + '\'';
+        }
+    }
+}

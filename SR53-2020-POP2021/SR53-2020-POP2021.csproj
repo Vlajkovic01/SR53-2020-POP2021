@@ -69,6 +69,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model\Administrator.cs" />
+    <Compile Include="model\Adresa.cs" />
+    <Compile Include="model\Centar.cs" />
+    <Compile Include="model\EPol.cs" />
+    <Compile Include="model\EStatusTreninga.cs" />
+    <Compile Include="model\ETipKorisnika.cs" />
+    <Compile Include="model\Instruktor.cs" />
+    <Compile Include="model\Polaznik.cs" />
+    <Compile Include="model\RegistrovaniKorisnik.cs" />
+    <Compile Include="model\Trening.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -93,6 +103,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\administratori.txt" />
+    <Resource Include="Resources\adrese.txt" />
+    <Resource Include="Resources\instruktori.txt" />
+    <Resource Include="Resources\polaznici.txt" />
+    <Resource Include="Resources\treninzi.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
