@@ -442,5 +442,43 @@ namespace SR53_2020_POP2021.model
                 Console.WriteLine("Trening uspesno dodat.");
             }
         }
+
+        //===============================LOGIN================================
+
+        public Administrator loginAdmin(string jmbg, string pass)
+        {
+            foreach(Administrator admin in administratori)
+            {
+                if(admin.JMBG.Equals(jmbg) && admin.Lozinka.Equals(pass))
+                {
+                    return admin;
+                }
+            }
+            return null;
+        }
+
+        public Instruktor loginInstruktor(string jmbg, string pass)
+        {
+            foreach (Instruktor instruktor in instruktori)
+            {
+                if (instruktor.JMBG.Equals(jmbg) && instruktor.Lozinka.Equals(pass))
+                {
+                    return instruktor;
+                }
+            }
+            return null;
+        }
+
+        public Polaznik loginPolaznik(string jmbg, string pass)
+        {
+            foreach (Polaznik polaznik in polaznici)
+            {
+                if (polaznik.JMBG.Equals(jmbg) && polaznik.Lozinka.Equals(pass))
+                {
+                    return polaznik;
+                }
+            }
+            return null;
+        }
     }
 }
