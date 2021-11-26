@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SR53_2020_POP2021.model
 {
+    [Serializable]
     public class Trening
     {
         private int id;
@@ -63,13 +64,21 @@ namespace SR53_2020_POP2021.model
             get { return polaznik; }
             set { polaznik = value; }
         }
+        private bool aktivan;
+
+        public bool Aktivan
+        {
+            get { return aktivan; }
+            set { aktivan = value; }
+        }
+
 
         public Trening()
         {
 
         }
 
-        public Trening(int id, string datumTreninga, string pocetakTreninga, int trajanjeTreninga, EStatusTreninga statusTreninga, Instruktor instruktor, Polaznik polaznik)
+        public Trening(int id, string datumTreninga, string pocetakTreninga, int trajanjeTreninga, EStatusTreninga statusTreninga, Instruktor instruktor, Polaznik polaznik, bool aktivan)
         {
             ID = id;
             DatumTreninga = datumTreninga;
@@ -78,16 +87,17 @@ namespace SR53_2020_POP2021.model
             StatusTreninga = statusTreninga;
             Instruktor = instruktor;
             Polaznik = polaznik;
+            Aktivan = aktivan;
         }
 
         public string TreningZaUpisUFajl()
         {
-            return ID + "|" + DatumTreninga + "|" + VremePocetkaTreninga + "|" + TrajanjeTreninga + "|" + StatusTreninga + "|" + Instruktor.JMBG + "|" + Polaznik.JMBG;
+            return ID + "|" + DatumTreninga + "|" + VremePocetkaTreninga + "|" + TrajanjeTreninga + "|" + StatusTreninga + "|" + Instruktor.Korisnik.JMBG + "|" + Polaznik.Korisnik.JMBG + "|" + Aktivan;
         }
 
         public override string ToString()
         {
-            return "Trening{" + "ID='" + ID + '\'' + ", DatumTreninga='" + DatumTreninga + '\'' + ", PocetakTreninga='" + VremePocetkaTreninga + '\'' + ", TrajanjeTreninga='" + TrajanjeTreninga +"min'" + ", StatusTreninga='" + StatusTreninga + '\'' + ", " + instruktor.ToString() + ", " + Polaznik.ToString();
+            return "Trening{" + "ID='" + ID + '\'' + ", DatumTreninga='" + DatumTreninga + '\'' + ", PocetakTreninga='" + VremePocetkaTreninga + '\'' + ", TrajanjeTreninga='" + TrajanjeTreninga +"min'" + ", StatusTreninga='" + StatusTreninga + '\'' + ", " + instruktor.ToString() + ", " + Polaznik.ToString() + ", Aktivan='" + Aktivan + '\'';
         }
     }
 }

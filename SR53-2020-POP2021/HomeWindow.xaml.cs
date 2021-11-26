@@ -1,4 +1,5 @@
 ﻿using SR53_2020_POP2021.model;
+using SR53_2020_POP2021.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,50 +21,31 @@ namespace SR53_2020_POP2021
     /// </summary>
     public partial class HomeWindow : Window
     {
-        private Centar centar;
-        private RegistrovaniKorisnik korisnik;
-        private ETipKorisnika tipKorisnika;
-        public HomeWindow(Centar centar ,RegistrovaniKorisnik korisnik)
+        RegistrovaniKorisnik trenutniKorisnik;
+        public HomeWindow(RegistrovaniKorisnik korisnik = null)
         {
             InitializeComponent();
 
-            this.centar = centar;
-            this.korisnik = korisnik;
+            trenutniKorisnik = korisnik;
 
-            if(korisnik is Administrator)
-            {
-                tipKorisnika = ETipKorisnika.ADMINISTRATOR;
-            } else if(korisnik is Instruktor)
-            {
-                tipKorisnika = ETipKorisnika.INSTRUKTOR;
-            } else
-            {
-                tipKorisnika = ETipKorisnika.POLAZNIK;
-            }
             if(korisnik != null)
             {
-                this.Title = "Prijavljeni ste kao " + tipKorisnika + " - " + korisnik.Ime;
+                this.Title = "Prijavljeni ste kao " + korisnik.TipKorisnika + " - " + korisnik.Ime;
             } else
             {
                 this.Title = "Prijavljeni ste kao gost";
             }
 
-            initGUI();
-
-        }
-
-        public void initGUI()
-        {
-            if(korisnik == null)
+            if (korisnik == null)
             {
                 MIAdministratori.Visibility = Visibility.Collapsed;
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
-                
-            } 
-            else if(korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
+
+            }
+            else if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
             {
                 MIAdministratori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
@@ -71,15 +53,15 @@ namespace SR53_2020_POP2021
                 MITreninzi.Visibility = Visibility.Collapsed;
 
             }
-            else if(korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
+            else if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
             {
                 MIAdministratori.Visibility = Visibility.Collapsed;
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
             }
-        }
 
+        }
         private void MIAdministratori_Click(object sender, RoutedEventArgs e)
         {
             //AllDoctors doctorWindow = new AllDoctors(CurrentUser);
@@ -89,12 +71,10 @@ namespace SR53_2020_POP2021
         }
         private void MIInstruktori_Click(object sender, RoutedEventArgs e)
         {
-            //AllPatients patinetWindow = new AllPatients(CurrentUser);
+            AllInstructorsWindow iw = new AllInstructorsWindow(trenutniKorisnik);
 
-            //this.Hide();
-            //patinetWindow.Show();
-
-
+            this.Hide();
+            iw.Show();
         }
         private void MIPolaznici_Click(object sender, RoutedEventArgs e)
         {

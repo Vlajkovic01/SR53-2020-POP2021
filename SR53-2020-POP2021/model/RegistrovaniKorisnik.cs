@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SR53_2020_POP2021.model
 {
-    public abstract class RegistrovaniKorisnik
+    [Serializable]
+    public class RegistrovaniKorisnik
     {
         private string ime;
 
@@ -72,26 +73,57 @@ namespace SR53_2020_POP2021.model
             set { tipKorisnika = value; }
         }
 
+        private bool aktivan;
+
+        public bool Aktivan
+        {
+            get { return aktivan; }
+            set { aktivan = value; }
+        }
+
+
         public RegistrovaniKorisnik()
         {
 
         }
 
-        public RegistrovaniKorisnik(string ime, string prezime, string jmbg, EPol pol, Adresa adresa, string email, string lozinka, ETipKorisnika tipKorisnika)
+        //public RegistrovaniKorisnik(string ime, string prezime, string jmbg, EPol pol, Adresa adresa, string email, string lozinka, ETipKorisnika tipKorisnika, bool aktivan)
+        //{
+        //    Ime = ime;
+        //    Prezime = prezime;
+        //    JMBG = jmbg;
+        //    Pol = pol;
+        //    Adresa = adresa;
+        //    Email = email;
+        //    Lozinka = lozinka;
+        //    TipKorisnika = tipKorisnika;
+        //    Aktivan = true;
+        //}
+
+        public string KorisnikZaUpisUFajl()
         {
-            Ime = ime;
-            Prezime = prezime;
-            JMBG = jmbg;
-            Pol = pol;
-            Adresa = adresa;
-            Email = email;
-            Lozinka = lozinka;
-            TipKorisnika = tipKorisnika;
+            return Ime + "|" + Prezime + "|" + JMBG + "|" + Pol + "|" + Adresa.ID + "|" + Email + "|" + Lozinka + "|" + TipKorisnika + "|" + Aktivan;
         }
 
         public override string ToString()
         {
-            return "Korisnik{" + "Ime='" + Ime + '\'' + ", Prezime='" + Prezime + '\'' + ", JMBG='" + JMBG + '\'' + ", Pol='" + Pol + '\'' + ", Adresa= " + Adresa.ToString() + ", Email='" + Email + '\'' + ", Lozinka='" + Lozinka + '\'' + ", TipKorisnika='" + TipKorisnika + '\'' + '}';
+            return "Korisnik{" + "Ime='" + Ime + '\'' + ", Prezime='" + Prezime + '\'' + ", JMBG='" + JMBG + '\'' + ", Pol='" + Pol + '\'' + ", Adresa= " + Adresa.ToString() + ", Email='" + Email + '\'' + ", Lozinka='" + Lozinka + '\'' + ", TipKorisnika='" + TipKorisnika + '\'' + ", Aktivan='" + Aktivan + '\'' + '}';
+        }
+
+        public RegistrovaniKorisnik Clone()
+        {
+            RegistrovaniKorisnik kopija = new RegistrovaniKorisnik();
+            kopija.Ime = Ime;
+            kopija.Prezime = Prezime;
+            kopija.JMBG = JMBG;
+            kopija.Pol = Pol;
+            kopija.Adresa = Adresa;
+            kopija.Email = Email;
+            kopija.Lozinka = Lozinka;
+            kopija.TipKorisnika = TipKorisnika;
+            kopija.Aktivan = Aktivan;
+
+            return kopija;
         }
 
     }

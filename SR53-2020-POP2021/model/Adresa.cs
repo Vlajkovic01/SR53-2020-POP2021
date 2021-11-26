@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SR53_2020_POP2021.model
 {
+    [Serializable]
     public class Adresa
     {
         public int id;
@@ -48,28 +49,50 @@ namespace SR53_2020_POP2021.model
             set { drzava = value; }
         }
 
-        public Adresa()
-        {
+        private bool aktivna;
 
+        public bool Aktivna
+        {
+            get { return aktivna; }
+            set { aktivna = value; }
         }
 
-        public Adresa(int id, string ulica, string broj, string grad, string drzava)
-        {
-            ID = id;
-            Ulica = ulica;
-            Broj = broj;
-            Grad = grad;
-            Drzava = drzava;
-        }
+
+        //public Adresa()
+        //{
+
+        //}
+
+        //public Adresa(int id, string ulica, string broj, string grad, string drzava)
+        //{
+        //    ID = id;
+        //    Ulica = ulica;
+        //    Broj = broj;
+        //    Grad = grad;
+        //    Drzava = drzava;
+        //}
 
         public string AdresaZaUpisUFajl()
         {
-            return ID + "|" + Ulica + "|" + Broj + "|" + Grad + "|" + Drzava;
+            return ID + "|" + Ulica + "|" + Broj + "|" + Grad + "|" + Drzava + "|" + Aktivna;
         }
 
         public override string ToString()
         {
-            return "Ulica='" + Ulica + '\'' + ", Broj='" + Broj + '\'' + ", Grad='" + Grad + '\'' + ", Drzava='" + Drzava + '\'' + ", ID='" + ID + '\'';
+            return "Ulica='" + Ulica + '\'' + ", Broj='" + Broj + '\'' + ", Grad='" + Grad + '\'' + ", Drzava='" + Drzava + '\'' + ", ID='" + ID + '\'' + ", Aktivna='" + Aktivna + '\'';
+        }
+
+        public Adresa Clone()
+        {
+            Adresa kopija = new Adresa();
+            kopija.ID = ID;
+            kopija.Ulica = Ulica;
+            kopija.Broj = Broj;
+            kopija.Grad = Grad;
+            kopija.Drzava = Drzava;
+            kopija.Aktivna = Aktivna;
+
+            return kopija;
         }
     }
 }

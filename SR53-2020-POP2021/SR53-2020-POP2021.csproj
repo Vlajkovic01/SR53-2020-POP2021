@@ -61,6 +61,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Izuzeci\UserNotFoundException.cs" />
+    <Compile Include="model\Util.cs" />
+    <Compile Include="Services\AdresaService.cs" />
+    <Compile Include="Services\IEntitet.cs" />
+    <Compile Include="Services\InstruktorService.cs" />
+    <Compile Include="Services\PolaznikService.cs" />
+    <Compile Include="Services\RegistrovaniKorisnikService.cs" />
+    <Compile Include="Services\TreningService.cs" />
+    <Compile Include="Windows\AllInstructorsWindow.xaml.cs">
+      <DependentUpon>AllInstructorsWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,11 +90,15 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AllInstructorsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="model\Administrator.cs" />
     <Compile Include="model\Adresa.cs" />
     <Compile Include="model\Centar.cs" />
+    <Compile Include="model\EOdabraniStatus.cs" />
     <Compile Include="model\EPol.cs" />
     <Compile Include="model\EStatusTreninga.cs" />
     <Compile Include="model\ETipKorisnika.cs" />
@@ -118,14 +133,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\administratori.txt" />
     <Resource Include="Resources\adrese.txt" />
     <Resource Include="Resources\instruktori.txt" />
     <Resource Include="Resources\polaznici.txt" />
     <Resource Include="Resources\treninzi.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Windows\" />
+    <Resource Include="Resources\korisnici.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\centri.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

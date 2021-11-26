@@ -21,18 +21,16 @@ namespace SR53_2020_POP2021
     public partial class LoginWindow : Window
     {
 
-        private Centar centar;
         public LoginWindow()
         {
             InitializeComponent();
+            Util.Instance.Initialize();
+            Util.Instance.CitanjeEntiteta("adrese.txt");
+            Util.Instance.CitanjeEntiteta("korisnici.txt");
+            Util.Instance.CitanjeEntiteta("instruktori.txt");
+            Util.Instance.CitanjeEntiteta("polaznici.txt");
+            Util.Instance.CitanjeEntiteta("korisnici.txt");
 
-            this.centar = new Centar();
-
-            centar.ucitajAdrese();
-            centar.ucitajAdministratore();
-            centar.ucitajInstruktore();
-            centar.ucitajPolaznike();
-            centar.ucitajTreninge();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -45,28 +43,14 @@ namespace SR53_2020_POP2021
                 MessageBox.Show("Niste uneli sve podatke za prijavu!");
             } else
             {
-                Administrator prijavljenAdmin = centar.loginAdmin(jmbg, password);
-                Instruktor prijavljenInstruktor = centar.loginInstruktor(jmbg, password);
-                Polaznik prijavljenPolaznik = centar.loginPolaznik(jmbg, password);
-                if (prijavljenAdmin == null && prijavljenInstruktor == null && prijavljenPolaznik == null)
+                RegistrovaniKorisnik prijavljenKorisnik = Util.Instance.Login(jmbg, password);
+                if (prijavljenKorisnik == null)
                 {
                     MessageBox.Show("Pogresni podaci prijave!");
                 } 
-                else if(prijavljenAdmin != null)
+                else if(prijavljenKorisnik != null && prijavljenKorisnik.Aktivan == true)
                 {
-                    HomeWindow hw = new HomeWindow(centar, prijavljenAdmin);
-                    this.Close();
-                    hw.Show();
-                }
-                else if (prijavljenInstruktor != null)
-                {
-                    HomeWindow hw = new HomeWindow(centar, prijavljenInstruktor);
-                    this.Close();
-                    hw.Show();
-                } 
-                else if (prijavljenPolaznik != null)
-                {
-                    HomeWindow hw = new HomeWindow(centar, prijavljenPolaznik);
+                    HomeWindow hw = new HomeWindow(prijavljenKorisnik);
                     this.Close();
                     hw.Show();
                 }
@@ -77,7 +61,7 @@ namespace SR53_2020_POP2021
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            HomeWindow hw = new HomeWindow(centar, null);
+            HomeWindow hw = new HomeWindow(null);
             this.Close();
             hw.Show();
         }

@@ -1,1 +1,1 @@
-1|Luke Stevica|111/A|Loznica|Srbija
+1|Luke Stevica|111/A|Loznica|Srbija|true

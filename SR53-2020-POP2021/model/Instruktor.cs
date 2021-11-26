@@ -1,38 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SR53_2020_POP2021.model
 {
-    public class Instruktor : RegistrovaniKorisnik
+    [Serializable]
+    public class Instruktor
     {
-        private List<Trening> listaTreninga;
+        private RegistrovaniKorisnik korisnik;
 
-        public List<Trening> ListaTreninga
+        public RegistrovaniKorisnik Korisnik
+        {
+            get { return korisnik; }
+            set { korisnik = value; }
+        }
+
+
+        private ObservableCollection<Trening> listaTreninga;
+
+        public ObservableCollection<Trening> ListaTreninga
         {
             get { return listaTreninga; }
             set { listaTreninga = value; }
         }
-        public Instruktor() : base()
-        {
 
-        }
 
-        public Instruktor(string ime, string prezime, string jmbg, EPol pol, Adresa adresa, string email, string lozinka, ETipKorisnika tipKorisnika, List<Trening> listaTreninga) : base(ime, prezime, jmbg, pol, adresa, email, lozinka, tipKorisnika)
-        {
-            ListaTreninga = listaTreninga;
-        }
 
         public string InstruktorZaUpisUFajl()
         {
-            return Ime + "|" + Prezime + "|" + JMBG + "|" + Pol + "|" + Adresa.ID + "|" + Email + "|" + Lozinka + "|" + TipKorisnika;
+            return korisnik.Ime + "|" + korisnik.Prezime + "|" + korisnik.JMBG + "|" + korisnik.Pol + "|" + korisnik.Adresa.ID + "|" +korisnik.Email + "|" + korisnik.Lozinka + "|" + korisnik.TipKorisnika + "|" + korisnik.Aktivan;
         }
 
         public override string ToString()
         {
-            String s = "Instruktor{" + "Ime='" + Ime + '\'' + ", Prezime='" + Prezime + '\'' + ", JMBG='" + JMBG + '\'' + ", Pol='" + Pol + '\'' + ", Adresa= " + Adresa.ToString() + ", Email='" + Email + '\'' + ", Lozinka='" + Lozinka + '\'' + ", TipKorisnika='" + TipKorisnika + '\'' + ", IDTreninga= ";
+            String s = "Instruktor{" + "Ime='" + korisnik.Ime + '\'' + ", Prezime='" + korisnik.Prezime + '\'' + ", JMBG='" + korisnik.JMBG + '\'' + ", Pol='" + korisnik.Pol + '\'' + ", Adresa= " + korisnik.Adresa.ToString() + ", Email='" + korisnik.Email + '\'' + ", Lozinka='" + korisnik.Lozinka + '\'' + ", TipKorisnika='" + korisnik.TipKorisnika + '\'' + ", Aktivan='" + korisnik.Aktivan + '\'' + ", IDTreninga= ";
             foreach(Trening trening in ListaTreninga) {
                 s += trening.ID + ", ";
             }
