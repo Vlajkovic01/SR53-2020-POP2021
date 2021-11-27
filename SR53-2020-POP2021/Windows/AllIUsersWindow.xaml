@@ -17,6 +17,9 @@
         <Label Content="Tip:" Margin="410,0,-409.8,0"></Label>
         <ComboBox Name="CBTipKorisnika" Margin="410,26,258.2,363" SelectionChanged="CBTipKorisnika_SelectionChanged"></ComboBox>
         <TextBox Name="txtEmail" HorizontalAlignment="Left" Height="23" Margin="310,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" KeyUp="txtEmail_KeyUp"/>
+        <Button Name="BtnDodaj" Content="Dodaj" Margin="752,0,0.2,390" Height="20" Click="BtnDodaj_Click"/>
+        <Button Name="BtnIzmeni" Content="Izmeni" Click="BtnIzmeni_Click" Margin="752,30,0.2,360" Height="20"></Button>
+        <Button Name="BtnIzbrisi" Content="Izbrisi" Click="BtnIzbrisi_Click" Height="20" Margin="752,60,0.2,330"></Button>
         <DataGrid CanUserAddRows="false" Name="DGKorisnici" HorizontalAlignment="left" Height="329" VerticalAlignment="Top" Width="843" Margin="0,91,0,0"
                   AutoGeneratingColumn="DGKorisnici_AutoGeneratingColumn"/>
     </Grid>

@@ -21,6 +21,7 @@ namespace SR53_2020_POP2021.Services
 
             registrovaniKorisnik.Aktivan = false;
             Util.Instance.SacuvajEntitet("korisnici.txt");
+ 
         }
 
         public void UcitajEntitet(string filename)

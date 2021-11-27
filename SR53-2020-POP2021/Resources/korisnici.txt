@@ -1,3 +1,3 @@
-﻿Stefan|Vlajkovic|123456789|MUSKI|1|vlajkovic@gmail.com|54321|ADMINISTRATOR|true
-Janko|Jankovic|12345678101|MUSKI|1|jankovic@gmail.com|112233|POLAZNIK|true
-Nikola|Nikolic|987654321|MUSKI|1|nikolic@gmail.com|12345|INSTRUKTOR|true
+Stefan|Vlajkovic|123456789|MUSKI|1|vlajkovic@gmail.com|54321|ADMINISTRATOR|True
+Janko|Jankovic|12345678101|MUSKI|1|jankovic@gmail.com|112233|POLAZNIK|True
+Nikola|Nikolic|987654321|MUSKI|1|nikolic@gmail.com|12345|INSTRUKTOR|True

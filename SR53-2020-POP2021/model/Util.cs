@@ -112,32 +112,22 @@ namespace SR53_2020_POP2021.model
             }
         }
 
-        public void BrisanjeEntiteta(string filename)
+        public void BrisanjeKorisnika(string jmbg)
         {
-            if (filename.Contains("korisnici"))
+            RegistrovaniKorisnik registrovaniKorisnik = Util.Instance.Korisnici.ToList().Find(korisnik => korisnik.JMBG.Equals(jmbg));
+            if(registrovaniKorisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
             {
-                regKorisnikService.IzbrisiEntitet(filename);
-            }
-            else if (filename.Contains("instruktori"))
+                regKorisnikService.IzbrisiEntitet(jmbg);
+                instruktorService.IzbrisiEntitet(jmbg);
+            } else if(registrovaniKorisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
             {
-                instruktorService.IzbrisiEntitet(filename);
-            }
-            else if (filename.Contains("polaznici"))
+                polaznikService.IzbrisiEntitet(jmbg);
+                regKorisnikService.IzbrisiEntitet(jmbg);
+            } else
             {
-                polaznikService.IzbrisiEntitet(filename);
+                regKorisnikService.IzbrisiEntitet(jmbg);
             }
-            else if (filename.Contains("adrese"))
-            {
-                adresaService.IzbrisiEntitet(filename);
-            }
-            else if (filename.Contains("treninzi"))
-            {
-                treningService.IzbrisiEntitet(filename);
-            }
-            else if (filename.Contains("centri"))
-            {
-                centarService.SacuvajEntitet(filename);
-            }
+            
         }
         public RegistrovaniKorisnik Login(string jmbg, string pass)
         {

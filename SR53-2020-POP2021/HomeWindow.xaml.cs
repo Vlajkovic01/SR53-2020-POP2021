@@ -39,7 +39,6 @@ namespace SR53_2020_POP2021
             if (korisnik == null)
             {
                 MIKorisnici.Visibility = Visibility.Collapsed;
-                MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
