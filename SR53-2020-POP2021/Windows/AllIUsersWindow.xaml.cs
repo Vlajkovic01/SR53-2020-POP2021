@@ -123,12 +123,31 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnDodaj_Click(object sender, RoutedEventArgs e)
         {
+            RegistrovaniKorisnik noviKorisnik = new RegistrovaniKorisnik();
+            AddEditUserWindow aeu = new AddEditUserWindow(noviKorisnik);
+            this.Hide();
+            if (!(bool)aeu.ShowDialog())
+            {
 
+            }
+            this.Show();
         }
 
         private void BtnIzmeni_Click(object sender, RoutedEventArgs e)
         {
+            RegistrovaniKorisnik selektovaniKorisnik = view.CurrentItem as RegistrovaniKorisnik;
+            RegistrovaniKorisnik stariKorisnik = selektovaniKorisnik.Clone();
 
+            AddEditUserWindow addEditUser = new AddEditUserWindow(selektovaniKorisnik, EOdabraniStatus.IZMENI);
+            this.Hide();
+            if (!(bool)addEditUser.ShowDialog())
+            {
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(stariKorisnik.JMBG));
+                Util.Instance.Korisnici[index] = stariKorisnik;
+            }
+            this.Show();
+
+            view.Refresh();
         }
 
         private void BtnIzbrisi_Click(object sender, RoutedEventArgs e)

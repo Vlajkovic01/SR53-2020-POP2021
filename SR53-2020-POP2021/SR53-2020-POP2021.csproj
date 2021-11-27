@@ -70,6 +70,12 @@
     <Compile Include="Services\PolaznikService.cs" />
     <Compile Include="Services\RegistrovaniKorisnikService.cs" />
     <Compile Include="Services\TreningService.cs" />
+    <Compile Include="Windows\AddEditUsersAddressWindow.xaml.cs">
+      <DependentUpon>AddEditUsersAddressWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddEditUserWindow.xaml.cs">
+      <DependentUpon>AddEditUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AllIUsersWindow.xaml.cs">
       <DependentUpon>AllIUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,14 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddEditUsersAddressWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddEditUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AllIUsersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
