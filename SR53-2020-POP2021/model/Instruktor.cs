@@ -31,7 +31,7 @@ namespace SR53_2020_POP2021.model
 
         public string InstruktorZaUpisUFajl()
         {
-            return korisnik.Ime + "|" + korisnik.Prezime + "|" + korisnik.JMBG + "|" + korisnik.Pol + "|" + korisnik.Adresa.ID + "|" +korisnik.Email + "|" + korisnik.Lozinka + "|" + korisnik.TipKorisnika + "|" + korisnik.Aktivan;
+            return korisnik.Ime + "|" + korisnik.Prezime + "|" + korisnik.JMBG + "|" + korisnik.Pol + "|" + korisnik.Adresa.ID + "|" + korisnik.Email + "|" + korisnik.Lozinka + "|" + korisnik.TipKorisnika + "|" + korisnik.Aktivan;
         }
 
         public override string ToString()

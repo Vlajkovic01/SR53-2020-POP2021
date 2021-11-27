@@ -9,7 +9,7 @@
     <Grid>
         <Menu Name="Menu" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="792">
             <MenuItem Name="Meni" Header="Meni">
-                <MenuItem Name="MIAdministratori" Header="Administratori" Click="MIAdministratori_Click"/>
+                <MenuItem Name="MIKorisnici" Header="Korisnici" Click="MIKorisnici_Click" />
                 <MenuItem Name="MIInstruktori" Header="Instruktori" Click="MIInstruktori_Click" />
                 <MenuItem Name="MIPolaznici" Header="Polaznici" Click="MIPolaznici_Click" />
                 <MenuItem Name="MIAdrese" Header="Adrese" Click="MIAdrese_Click" />

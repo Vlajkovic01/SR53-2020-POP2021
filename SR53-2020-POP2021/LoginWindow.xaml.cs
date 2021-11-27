@@ -30,6 +30,7 @@ namespace SR53_2020_POP2021
             Util.Instance.CitanjeEntiteta("instruktori.txt");
             Util.Instance.CitanjeEntiteta("polaznici.txt");
             Util.Instance.CitanjeEntiteta("korisnici.txt");
+            Util.Instance.CitanjeEntiteta("centri.txt");
 
         }
 
@@ -69,6 +70,11 @@ namespace SR53_2020_POP2021
         private void ButtonRegistracija_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.Hide();
         }
     }
 }

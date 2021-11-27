@@ -16,13 +16,14 @@ namespace SR53_2020_POP2021.model
         private IEntitet polaznikService;
         private IEntitet treningService;
         private IEntitet adresaService;
-        //private IEntitet centarService;
+        private IEntitet centarService;
 
         public ObservableCollection<RegistrovaniKorisnik> Korisnici { get; set; }
         public ObservableCollection<Instruktor> Instruktori { get; set; }
         public ObservableCollection<Polaznik> Polaznici { get; set; }
         public ObservableCollection<Trening> Treninzi { get; set; }
         public ObservableCollection<Adresa> Adrese { get; set; }
+        public ObservableCollection<Centar> Centri { get; set; }
 
         private Util()
         {
@@ -31,7 +32,7 @@ namespace SR53_2020_POP2021.model
             polaznikService = new PolaznikService();
             treningService = new TreningService();
             adresaService = new AdresaService();
-            //centarService = new CentarService();
+            centarService = new CentarService();
         }
         static Util()
         {
@@ -52,6 +53,7 @@ namespace SR53_2020_POP2021.model
             Instruktori = new ObservableCollection<Instruktor>();
             Polaznici = new ObservableCollection<Polaznik>();
             Treninzi = new ObservableCollection<Trening>();
+            Centri = new ObservableCollection<Centar>();
         }
 
         public void SacuvajEntitet(string filename)
@@ -78,7 +80,7 @@ namespace SR53_2020_POP2021.model
             }
             else if (filename.Contains("centri"))
             {
-                //centarService.SacuvajEntitet(filename);
+                centarService.SacuvajEntitet(filename);
             }
         }
 
@@ -104,6 +106,10 @@ namespace SR53_2020_POP2021.model
             {
                 treningService.UcitajEntitet(filename);
             }
+            else if (filename.Contains("centri"))
+            {
+                centarService.SacuvajEntitet(filename);
+            }
         }
 
         public void BrisanjeEntiteta(string filename)
@@ -127,6 +133,10 @@ namespace SR53_2020_POP2021.model
             else if (filename.Contains("treninzi"))
             {
                 treningService.IzbrisiEntitet(filename);
+            }
+            else if (filename.Contains("centri"))
+            {
+                centarService.SacuvajEntitet(filename);
             }
         }
         public RegistrovaniKorisnik Login(string jmbg, string pass)

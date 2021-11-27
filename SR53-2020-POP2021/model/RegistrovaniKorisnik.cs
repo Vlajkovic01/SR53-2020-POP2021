@@ -87,19 +87,6 @@ namespace SR53_2020_POP2021.model
 
         }
 
-        //public RegistrovaniKorisnik(string ime, string prezime, string jmbg, EPol pol, Adresa adresa, string email, string lozinka, ETipKorisnika tipKorisnika, bool aktivan)
-        //{
-        //    Ime = ime;
-        //    Prezime = prezime;
-        //    JMBG = jmbg;
-        //    Pol = pol;
-        //    Adresa = adresa;
-        //    Email = email;
-        //    Lozinka = lozinka;
-        //    TipKorisnika = tipKorisnika;
-        //    Aktivan = true;
-        //}
-
         public string KorisnikZaUpisUFajl()
         {
             return Ime + "|" + Prezime + "|" + JMBG + "|" + Pol + "|" + Adresa.ID + "|" + Email + "|" + Lozinka + "|" + TipKorisnika + "|" + Aktivan;

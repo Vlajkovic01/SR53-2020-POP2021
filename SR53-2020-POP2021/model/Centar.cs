@@ -32,61 +32,37 @@ namespace SR53_2020_POP2021.model
             get { return adresaCentra; }
             set { adresaCentra = value; }
         }
+        private bool aktivan;
 
-        private List<Instruktor> instruktori;
-
-        public List<Instruktor> Instruktori
+        public bool Aktivan
         {
-            get { return instruktori; }
-            set { instruktori = value; }
+            get { return aktivan; }
+            set { aktivan = value; }
         }
-
-        private List<Polaznik> polaznici;
-
-        public List<Polaznik> Polaznici
-        {
-            get { return polaznici; }
-            set { polaznici = value; }
-        }
-
-        private List<Trening> treninzi;
-
-        public List<Trening> Treninzi
-        {
-            get { return treninzi; }
-            set { treninzi = value; }
-        }
-
-        private List<Adresa> listaAdresa;
-
-        public List<Adresa> ListaAdresa
-        {
-            get { return listaAdresa; }
-            set { listaAdresa = value; }
-        }
-
 
         public Centar()
         {
-            this.ID = 0;
-            this.NazivCentra = "";
-            this.AdresaCentra = new Adresa();
-            this.Instruktori = new List<Instruktor>();
-            this.Polaznici = new List<Polaznik>();
-            this.Treninzi = new List<Trening>();
-            this.ListaAdresa = new List<Adresa>();
+            
         }
-
-        public Centar(int id, string naziv, Adresa adresa)
+        public string CentarZaUpisUFajl()
         {
-            ID = id;
-            NazivCentra = naziv;
-            AdresaCentra = adresa;
+            return ID + "|" + NazivCentra + "|" + AdresaCentra.ID + "|" + Aktivan;
         }
-
         public override string ToString()
         {
-            return "Centar{" + "ID='" + ID + '\'' + ", Naziv='" + NazivCentra + '\'' + ", Adresa='" + AdresaCentra.ToString() + '\'' + '}';
+            return "Centar{" + "ID='" + ID + '\'' + ", Naziv='" + NazivCentra + '\'' + ", Adresa='" + AdresaCentra.ToString() + '\'' + ", Aktivan='" + Aktivan + "\'" +'}';
+        }
+
+        public Centar Clone()
+        {
+            Centar kopija = new Centar();
+
+            kopija.ID = ID;
+            kopija.nazivCentra = NazivCentra;
+            kopija.AdresaCentra = AdresaCentra;
+            kopija.Aktivan = Aktivan;
+
+            return kopija;
         }
     }
 }

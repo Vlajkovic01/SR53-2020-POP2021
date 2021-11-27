@@ -38,7 +38,7 @@ namespace SR53_2020_POP2021
 
             if (korisnik == null)
             {
-                MIAdministratori.Visibility = Visibility.Collapsed;
+                MIKorisnici.Visibility = Visibility.Collapsed;
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
@@ -47,7 +47,7 @@ namespace SR53_2020_POP2021
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
             {
-                MIAdministratori.Visibility = Visibility.Collapsed;
+                MIKorisnici.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
@@ -55,26 +55,31 @@ namespace SR53_2020_POP2021
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
             {
-                MIAdministratori.Visibility = Visibility.Collapsed;
+                MIKorisnici.Visibility = Visibility.Collapsed;
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
             }
+            else if (korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR))
+            {
+                MIInstruktori.Visibility = Visibility.Collapsed;
+                MIPolaznici.Visibility = Visibility.Collapsed;
+            }
 
         }
-        private void MIAdministratori_Click(object sender, RoutedEventArgs e)
+        private void MIKorisnici_Click(object sender, RoutedEventArgs e)
         {
-            //AllDoctors doctorWindow = new AllDoctors(CurrentUser);
-
-            //this.Hide();
-            //doctorWindow.Show();
-        }
-        private void MIInstruktori_Click(object sender, RoutedEventArgs e)
-        {
-            AllInstructorsWindow iw = new AllInstructorsWindow(trenutniKorisnik);
+            AllUsersWindow iw = new AllUsersWindow(trenutniKorisnik);
 
             this.Hide();
             iw.Show();
+        }
+        private void MIInstruktori_Click(object sender, RoutedEventArgs e)
+        {
+            //AllInstructorsWindow iw = new AllInstructorsWindow(trenutniKorisnik);
+
+            //this.Hide();
+            //iw.Show();
         }
         private void MIPolaznici_Click(object sender, RoutedEventArgs e)
         {
