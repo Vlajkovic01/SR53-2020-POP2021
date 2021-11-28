@@ -1,4 +1,5 @@
 ﻿using SR53_2020_POP2021.model;
+using SR53_2020_POP2021.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,7 +70,14 @@ namespace SR53_2020_POP2021
 
         private void ButtonRegistracija_Click(object sender, RoutedEventArgs e)
         {
+            RegistrovaniKorisnik noviKorisnik = new RegistrovaniKorisnik();
+            AddEditUserWindow aeu = new AddEditUserWindow(noviKorisnik);
+            aeu.CBTipKorisnika.IsEnabled = false;
+            if (!(bool)aeu.ShowDialog())
+            {
 
+            }
+            this.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

@@ -144,6 +144,24 @@ namespace SR53_2020_POP2021.model
             }
             return counter;
         }
+        public int GenerisanjeIDTreninga()
+        {
+            int counter = 1;
+            foreach (Trening trening in Treninzi)
+            {
+                counter++;
+            }
+            return counter;
+        }
+        public int GenerisanjeIDCentra()
+        {
+            int counter = 1;
+            foreach (Centar centar in Centri)
+            {
+                counter++;
+            }
+            return counter;
+        }
         public RegistrovaniKorisnik Login(string jmbg, string pass)
         {
             foreach (RegistrovaniKorisnik korisnik in Korisnici)

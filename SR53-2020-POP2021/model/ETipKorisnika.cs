@@ -8,6 +8,6 @@ namespace SR53_2020_POP2021.model
 {
     public enum ETipKorisnika
     {
-        ADMINISTRATOR, POLAZNIK, INSTRUKTOR
+        POLAZNIK, INSTRUKTOR, ADMINISTRATOR
     }
 }
