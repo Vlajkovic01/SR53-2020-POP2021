@@ -73,22 +73,22 @@ namespace SR53_2020_POP2021.model
         }
 
 
-        public Trening()
-        {
+        //public Trening()
+        //{
 
-        }
+        //}
 
-        public Trening(int id, string datumTreninga, string pocetakTreninga, int trajanjeTreninga, EStatusTreninga statusTreninga, Instruktor instruktor, Polaznik polaznik, bool aktivan)
-        {
-            ID = id;
-            DatumTreninga = datumTreninga;
-            VremePocetkaTreninga = pocetakTreninga;
-            TrajanjeTreninga = trajanjeTreninga;
-            StatusTreninga = statusTreninga;
-            Instruktor = instruktor;
-            Polaznik = polaznik;
-            Aktivan = aktivan;
-        }
+        //public Trening(int id, string datumTreninga, string pocetakTreninga, int trajanjeTreninga, EStatusTreninga statusTreninga, Instruktor instruktor, Polaznik polaznik, bool aktivan)
+        //{
+        //    ID = id;
+        //    DatumTreninga = datumTreninga;
+        //    VremePocetkaTreninga = pocetakTreninga;
+        //    TrajanjeTreninga = trajanjeTreninga;
+        //    StatusTreninga = statusTreninga;
+        //    Instruktor = instruktor;
+        //    Polaznik = polaznik;
+        //    Aktivan = aktivan;
+        //}
 
         public string TreningZaUpisUFajl()
         {
@@ -98,6 +98,21 @@ namespace SR53_2020_POP2021.model
         public override string ToString()
         {
             return "Trening{" + "ID='" + ID + '\'' + ", DatumTreninga='" + DatumTreninga + '\'' + ", PocetakTreninga='" + VremePocetkaTreninga + '\'' + ", TrajanjeTreninga='" + TrajanjeTreninga +"min'" + ", StatusTreninga='" + StatusTreninga + '\'' + ", " + instruktor.ToString() + ", " + Polaznik.ToString() + ", Aktivan='" + Aktivan + '\'';
+        }
+
+        public Trening Clone()
+        {
+            Trening kopija = new Trening();
+            kopija.ID = ID;
+            kopija.DatumTreninga = DatumTreninga;
+            kopija.VremePocetkaTreninga = VremePocetkaTreninga;
+            kopija.StatusTreninga = StatusTreninga;
+            kopija.Instruktor = Instruktor;
+            kopija.Polaznik = Polaznik;
+            kopija.Aktivan = Aktivan;
+
+            return kopija;
+
         }
     }
 }

@@ -37,9 +37,9 @@ namespace SR53_2020_POP2021.model
         public override string ToString()
         {
             String s = "Instruktor{" + "Ime='" + korisnik.Ime + '\'' + ", Prezime='" + korisnik.Prezime + '\'' + ", JMBG='" + korisnik.JMBG + '\'' + ", Pol='" + korisnik.Pol + '\'' + ", Adresa= " + korisnik.Adresa.ToString() + ", Email='" + korisnik.Email + '\'' + ", Lozinka='" + korisnik.Lozinka + '\'' + ", TipKorisnika='" + korisnik.TipKorisnika + '\'' + ", Aktivan='" + korisnik.Aktivan + '\'' + ", IDTreninga= ";
-            foreach(Trening trening in ListaTreninga) {
-                s += trening.ID + ", ";
-            }
+            //foreach(Trening trening in ListaTreninga) {
+            //    s += trening.ID + ", ";
+            //}
             return s + '}';
         }
     }

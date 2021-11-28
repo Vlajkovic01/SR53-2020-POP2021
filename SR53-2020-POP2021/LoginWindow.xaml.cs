@@ -32,6 +32,7 @@ namespace SR53_2020_POP2021
             Util.Instance.CitanjeEntiteta("polaznici.txt");
             Util.Instance.CitanjeEntiteta("korisnici.txt");
             Util.Instance.CitanjeEntiteta("centri.txt");
+            Util.Instance.CitanjeEntiteta("treninzi.txt");
 
         }
 

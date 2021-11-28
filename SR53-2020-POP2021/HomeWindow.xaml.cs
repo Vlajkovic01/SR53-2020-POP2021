@@ -75,17 +75,11 @@ namespace SR53_2020_POP2021
         }
         private void MIInstruktori_Click(object sender, RoutedEventArgs e)
         {
-            //AllInstructorsWindow iw = new AllInstructorsWindow(trenutniKorisnik);
 
-            //this.Hide();
-            //iw.Show();
         }
         private void MIPolaznici_Click(object sender, RoutedEventArgs e)
         {
-            //AllAdress adressWindow = new AllAdress(CurrentUser);
 
-            //this.Hide();
-            //adressWindow.Show();
         }
 
         private void MIAdrese_Click(object sender, RoutedEventArgs e)
@@ -98,18 +92,15 @@ namespace SR53_2020_POP2021
 
         private void MIFitnesCentri_Click(object sender, RoutedEventArgs e)
         {
-            //AllAppointments appointmentWindow = new AllAppointments(CurrentUser);
 
-            //this.Hide();
-            //appointmentWindow.Show();
         }
 
         private void MITreninzi_Click(object sender, RoutedEventArgs e)
         {
-            //AllTherapy therapyWindow = new AllTherapy(CurrentUser);
+            AllTrainingWindow atw = new AllTrainingWindow(trenutniKorisnik);
 
-            //this.Hide();
-            //therapyWindow.Show();
+            this.Hide();
+            atw.Show();
         }
 
         private void BtnOdjava_Click(object sender, RoutedEventArgs e)

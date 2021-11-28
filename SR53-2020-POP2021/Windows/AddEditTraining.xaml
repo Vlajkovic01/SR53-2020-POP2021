@@ -1,0 +1,49 @@
+﻿<Window x:Class="SR53_2020_POP2021.Windows.AddEditTraining"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SR53_2020_POP2021.Windows"
+        mc:Ignorable="d"
+        Title="AddEditTraining" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Name="LblID" Content="ID: "/>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtID" Text="{Binding Path=ID}" />
+
+        <Label Grid.Column="0" Grid.Row="1" Name="LblDatum" Content="Datum(dd.mm.yyyy): "/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtDatum" Text="{Binding Path=DatumTreninga}" />
+
+        <Label Grid.Column="0" Grid.Row="2" Name="LblVreme" Content="Vreme pocetka(hh:mm): "/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtVreme" Text="{Binding Path=VremePocetkaTreninga}" />
+
+        <Label Grid.Column="0" Grid.Row="3" Name="LblTrajanje" Content="Trajanje(minuti): "/>
+        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtTrajanje" Text="{Binding Path=TrajanjeTreninga}" />
+
+        <Label Grid.Column="0" Grid.Row="4" Name="LblStatus" Content="Status: "/>
+        <ComboBox Name="CBStatus" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Path=StatusTreninga}"/>
+
+        <Label Grid.Column="0" Grid.Row="5" Name="LblInstruktor" Content="Instruktor: "/>
+        <ComboBox Name="CBInstruktor" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Path=Instruktor}"/>
+
+        <Label Grid.Column="0" Grid.Row="6" Name="LblPolaznik" Content="Polaznik: "/>
+        <ComboBox Name="CBPolaznik" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Path=Polaznik}"/>
+
+        <Button Grid.Column="0" Grid.Row="7" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
+        <Button Grid.Column="1" Grid.Row="7" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />
+    </Grid>
+</Window>

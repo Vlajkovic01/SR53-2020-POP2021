@@ -133,6 +133,11 @@ namespace SR53_2020_POP2021.model
         {
             string sifra = id.ToString();
             adresaService.IzbrisiEntitet(sifra);
+        }
+        public void BrisanjeTreninga(int id)
+        {
+            string sifra = id.ToString();
+            treningService.IzbrisiEntitet(sifra);
 
         }
         public int GenerisanjeIDAdrese()

@@ -1,1 +1,2 @@
 Nikola|Nikolic|9876543219876|MUSKI|1|nikolic@gmail.com|12345|INSTRUKTOR|True
+Marko|Markovic|1122334455667|MUSKI|2|markovic@gmail.com|12345|INSTRUKTOR|True
