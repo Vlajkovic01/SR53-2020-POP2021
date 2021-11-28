@@ -129,6 +129,21 @@ namespace SR53_2020_POP2021.model
             }
             
         }
+        public void BrisanjeAdrese(int id)
+        {
+            string sifra = id.ToString();
+            adresaService.IzbrisiEntitet(sifra);
+
+        }
+        public int GenerisanjeIDAdrese()
+        {
+            int counter = 1;
+            foreach(Adresa adresa in Adrese)
+            {
+                counter++;
+            }
+            return counter;
+        }
         public RegistrovaniKorisnik Login(string jmbg, string pass)
         {
             foreach (RegistrovaniKorisnik korisnik in Korisnici)

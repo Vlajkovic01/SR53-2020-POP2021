@@ -90,10 +90,10 @@ namespace SR53_2020_POP2021
 
         private void MIAdrese_Click(object sender, RoutedEventArgs e)
         {
-            //AllHospitals hospitalWindow = new AllHospitals(CurrentUser);
+            AllAddressWindow aw = new AllAddressWindow(trenutniKorisnik);
 
-            //this.Hide();
-            //hospitalWindow.Show();
+            this.Hide();
+            aw.Show();
         }
 
         private void MIFitnesCentri_Click(object sender, RoutedEventArgs e)

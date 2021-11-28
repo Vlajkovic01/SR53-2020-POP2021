@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SR53_2020_POP2021"
         mc:Ignorable="d"
-        Title="Login" Height="380" Width="350" FontSize="14" Background="#0369cf">
-
-    <!--Title="Login" Height="230" Width="510" Closing="Window_Closing">-->
-    <!--<Grid>
+        Title="Login" Height="230" Width="510" Closing="Window_Closing">
+    <Grid>
         <TextBox HorizontalAlignment="Left" Name="TxtJMBG"  Height="22" Margin="172,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202"/>
 
         <Label Content="JMBG" HorizontalAlignment="Left" Margin="103,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.905,0.602"/>
@@ -18,18 +16,5 @@
         <Button Content="Registruj se" HorizontalAlignment="Left" Margin="279,129,0,0" VerticalAlignment="Top" Width="105" Height="22" Click="ButtonRegistracija_Click"/>
         <PasswordBox HorizontalAlignment="Left" Name="PBPassword" Margin="172,92,0,0" VerticalAlignment="Top" Width="202" Height="22"/>
         <Button Content="Udji kao gost" HorizontalAlignment="Left" Margin="231,167,0,0" VerticalAlignment="Top" Width="85" Click="Button_Click_1" Height="24"/>
-    </Grid>-->
-    <Border Background="#2e3137" CornerRadius="20" Margin="20">
-        <StackPanel Margin="20">
-            <Label Content="Login" Foreground="White" FontSize="25" HorizontalAlignment="Center"/>
-            <Separator></Separator>
-            <Label Content="JMBG" Foreground="White"/>
-            <TextBox Name="TxtJMBG" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Label Content="Lozinka" Foreground="White"/>
-            <PasswordBox Name="PBPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button Click="Button_Click" Content="Uloguj se" Margin="60 10" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button  Click="Button_Click_1" Content="Gost"  Margin="60 10" Background="#2e3137" FontStyle="Italic" FontFamily="Comic Sans MS" Foreground="White" FontSize="10" Height="16"/>
-            <Button  Click="ButtonRegistracija_Click" Content="Registracija" Margin="60 10" Background="#2e3137" FontStyle="Italic" FontFamily="Comic Sans MS" Foreground="White" FontSize="10" Height="16"/>
-        </StackPanel>
-    </Border>
+    </Grid>
 </Window>

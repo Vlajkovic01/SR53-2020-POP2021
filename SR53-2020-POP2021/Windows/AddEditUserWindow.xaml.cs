@@ -40,10 +40,9 @@ namespace SR53_2020_POP2021.Windows
                 if (adresa.Aktivna)
                 {
                     CBAdresa.Items.Add(adresa);
-                }
-                    
+                }   
             }
-
+           
             if(status.Equals(EOdabraniStatus.IZMENI) && korisnik != null)
             {
                 this.Title = "Izmena korisnika";
@@ -104,11 +103,6 @@ namespace SR53_2020_POP2021.Windows
             }
         }
 
-        private void BtnAdresa_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private bool Validacija()
         {
             string poruka = "Molimo popravite sledece greske u unosu: " + "\n";
@@ -151,7 +145,7 @@ namespace SR53_2020_POP2021.Windows
             }
             if (TxtEmail.Text.Equals("") || !TxtEmail.Text.Contains("@gmail.com"))
             {
-                poruka += "- Niste uneli Email" + "\n";
+                poruka += "- Niste pravilno uneli Email" + "\n";
                 ispravno = false;
             }
             if (TxtLozinka.Text.Equals(""))
@@ -169,6 +163,23 @@ namespace SR53_2020_POP2021.Windows
                 MessageBox.Show(poruka, "Greska");
             }
             return ispravno;
+        }
+
+        private void BtnNovaAdresa_Click(object sender, RoutedEventArgs e)
+        {
+            Adresa novaAdresa = new Adresa();
+            novaAdresa.ID = Util.Instance.GenerisanjeIDAdrese();
+            AddEditUsersAddressWindow aeua = new AddEditUsersAddressWindow(novaAdresa);
+            if (!(bool)aeua.ShowDialog())
+            {
+
+            }
+            if (novaAdresa.Aktivna != false)
+            {
+                CBAdresa.Items.Add(novaAdresa);
+            }
+
+            
         }
     }
 }

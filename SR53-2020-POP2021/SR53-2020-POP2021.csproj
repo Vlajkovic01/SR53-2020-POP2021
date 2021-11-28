@@ -76,6 +76,9 @@
     <Compile Include="Windows\AddEditUserWindow.xaml.cs">
       <DependentUpon>AddEditUserWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AllAddressWindow.xaml.cs">
+      <DependentUpon>AllAddressWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AllIUsersWindow.xaml.cs">
       <DependentUpon>AllIUsersWindow.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AddEditUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AllAddressWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
