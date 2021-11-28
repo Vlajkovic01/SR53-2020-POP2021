@@ -69,6 +69,7 @@ namespace SR53_2020_POP2021.Windows
             DGAdrese.IsSynchronizedWithCurrentItem = true;
 
             DGAdrese.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGAdrese.SelectedItems.Clear();
         }
 
         private void txtUlicaAdrese_KeyUp(object sender, KeyEventArgs e)
@@ -120,6 +121,7 @@ namespace SR53_2020_POP2021.Windows
                 this.Show();
 
                 view.Refresh();
+                DGAdrese.SelectedItems.Clear();
             }
             else
             {

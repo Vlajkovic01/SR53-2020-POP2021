@@ -85,6 +85,7 @@ namespace SR53_2020_POP2021.Windows
             DGKorisnici.IsSynchronizedWithCurrentItem = true;
 
             DGKorisnici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGKorisnici.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
         }
 
 
@@ -148,6 +149,7 @@ namespace SR53_2020_POP2021.Windows
             this.Show();
 
             view.Refresh();
+            DGKorisnici.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
         }
 
         private void BtnIzbrisi_Click(object sender, RoutedEventArgs e)
@@ -156,12 +158,18 @@ namespace SR53_2020_POP2021.Windows
             {
                 RegistrovaniKorisnik selektovani = view.CurrentItem as RegistrovaniKorisnik;
 
-                if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovani.Ime + " " + selektovani.Prezime} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
+                if(!selektovani.JMBG.Equals(trenutniKorisnik.JMBG))
                 {
-                    
-                    Util.Instance.BrisanjeKorisnika(selektovani.JMBG);
-                    UpdateView();
-                    view.Refresh();
+                    if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovani.Ime + " " + selektovani.Prezime} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
+                    {
+
+                        Util.Instance.BrisanjeKorisnika(selektovani.JMBG);
+                        UpdateView();
+                        view.Refresh();
+                    }
+                } else
+                {
+                    MessageBox.Show("Ne mozes izbrisati sam sebe.");
                 }
                     
             } else
