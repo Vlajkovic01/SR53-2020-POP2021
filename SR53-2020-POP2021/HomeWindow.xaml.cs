@@ -43,7 +43,9 @@ namespace SR53_2020_POP2021
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
                 MIProfil.Visibility = Visibility.Collapsed;
+                MIInstruktori.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
+                SeparatorProfil.Visibility = Visibility.Collapsed;
 
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
@@ -52,6 +54,7 @@ namespace SR53_2020_POP2021
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
+                MIInstruktori.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
 
             }
@@ -62,12 +65,14 @@ namespace SR53_2020_POP2021
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
+                MIPregledInstruktora.Visibility = Visibility.Collapsed;
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR))
             {
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
+                MIPregledInstruktora.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -120,6 +125,13 @@ namespace SR53_2020_POP2021
 
             this.Hide();
             atw.Show();
+        }
+        private void MIPregledInstruktora_Click(object sender, RoutedEventArgs e)
+        {
+            ReviewInstructorsWindow riw = new ReviewInstructorsWindow(trenutniKorisnik);
+
+            this.Hide();
+            riw.Show();
         }
         private void MIMojiTreninziInstruktor_Click(object sender, RoutedEventArgs e)
         {

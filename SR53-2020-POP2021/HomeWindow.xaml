@@ -13,10 +13,11 @@
                 <MenuItem Name="MIInstruktori" Header="Instruktori" Click="MIInstruktori_Click" />
                 <MenuItem Name="MIPolaznici" Header="Polaznici" Click="MIPolaznici_Click" />
                 <MenuItem Name="MIAdrese" Header="Adrese" Click="MIAdrese_Click" />
+                <MenuItem Name="MIPregledInstruktora" Header="Pregled instruktora" Click="MIPregledInstruktora_Click" />
                 <MenuItem Name="MITreninzi" Header="Treninzi" Click="MITreninzi_Click" />
                 <MenuItem Name="MIMojiTreninziInstruktor" Header="Moji Treninzi" Click="MIMojiTreninziInstruktor_Click" />
                 <MenuItem Name="MIFitnesCentri" Header="Fitnes Centri" Click="MIFitnesCentri_Click" />
-                <Separator></Separator>
+                <Separator Name="SeparatorProfil"></Separator>
                 <MenuItem Name="MIProfil" Header="Moj Profil" Click="MIProfil_Click" />
             </MenuItem>
         </Menu>
