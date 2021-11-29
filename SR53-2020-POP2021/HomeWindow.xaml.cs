@@ -39,38 +39,31 @@ namespace SR53_2020_POP2021
             if (korisnik == null)
             {
                 MIKorisnici.Visibility = Visibility.Collapsed;
-                MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
                 MIProfil.Visibility = Visibility.Collapsed;
-                MIInstruktori.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
+                MIPregledInstruktora.Visibility = Visibility.Collapsed;
                 SeparatorProfil.Visibility = Visibility.Collapsed;
 
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
             {
                 MIKorisnici.Visibility = Visibility.Collapsed;
-                MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
-                MIInstruktori.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
 
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
             {
                 MIKorisnici.Visibility = Visibility.Collapsed;
-                MIInstruktori.Visibility = Visibility.Collapsed;
-                MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
                 MIPregledInstruktora.Visibility = Visibility.Collapsed;
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR))
             {
-                MIInstruktori.Visibility = Visibility.Collapsed;
-                MIPolaznici.Visibility = Visibility.Collapsed;
                 MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
                 MIPregledInstruktora.Visibility = Visibility.Collapsed;
             }
@@ -83,14 +76,6 @@ namespace SR53_2020_POP2021
             this.Hide();
             iw.Show();
         }
-        private void MIInstruktori_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void MIPolaznici_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void MIAdrese_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +87,10 @@ namespace SR53_2020_POP2021
 
         private void MIFitnesCentri_Click(object sender, RoutedEventArgs e)
         {
+            FitnesCenterWindow fcw = new FitnesCenterWindow(trenutniKorisnik);
 
+            this.Hide();
+            fcw.Show();
         }
         private void MIProfil_Click(object sender, RoutedEventArgs e)
         {

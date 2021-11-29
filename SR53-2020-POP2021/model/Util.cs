@@ -108,7 +108,7 @@ namespace SR53_2020_POP2021.model
             }
             else if (filename.Contains("centri"))
             {
-                centarService.SacuvajEntitet(filename);
+                centarService.UcitajEntitet(filename);
             }
         }
 

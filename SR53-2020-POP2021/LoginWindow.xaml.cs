@@ -64,9 +64,9 @@ namespace SR53_2020_POP2021
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            HomeWindow hw = new HomeWindow(null);
+            FitnesCenterWindow centar = new FitnesCenterWindow(null);
             this.Close();
-            hw.Show();
+            centar.Show();
         }
 
         private void ButtonRegistracija_Click(object sender, RoutedEventArgs e)

@@ -98,18 +98,27 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnTreninzi_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void DGInstruktori_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            HomeWindow homeWindow = new HomeWindow(trenutniKorisnik);
-            homeWindow.Show();
+            if(trenutniKorisnik == null)
+            {
+                FitnesCenterWindow fcw = new FitnesCenterWindow(trenutniKorisnik);
+
+                this.Hide();
+                fcw.Show();
+            } else
+            {
+                HomeWindow homeWindow = new HomeWindow(trenutniKorisnik);
+                homeWindow.Show();
+            }
         }
     }
 }
