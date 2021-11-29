@@ -1,1 +1,1 @@
-Janko|Jankovic|1234567810101|MUSKI|1|jankovic@gmail.com|12345|POLAZNIK|True
+Janko|Jankovic|1234567810101|MUSKI|2|jankovic@gmail.com|12345|POLAZNIK|True

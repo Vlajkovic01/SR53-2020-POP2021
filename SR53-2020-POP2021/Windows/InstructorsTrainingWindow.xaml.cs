@@ -1,7 +1,6 @@
 ﻿using SR53_2020_POP2021.model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -18,13 +17,13 @@ using System.Windows.Shapes;
 namespace SR53_2020_POP2021.Windows
 {
     /// <summary>
-    /// Interaction logic for AllTrainingWindow.xaml
+    /// Interaction logic for InstructorsTrainingWindow.xaml
     /// </summary>
-    public partial class AllTrainingWindow : Window
+    public partial class InstructorsTrainingWindow : Window
     {
         ICollectionView view;
         RegistrovaniKorisnik trenutniKorisnik;
-        public AllTrainingWindow(RegistrovaniKorisnik korisnik)
+        public InstructorsTrainingWindow(RegistrovaniKorisnik korisnik)
         {
             InitializeComponent();
             trenutniKorisnik = korisnik;
@@ -38,7 +37,7 @@ namespace SR53_2020_POP2021.Windows
         private bool CustomFilter(object obj)
         {
             Trening trening = obj as Trening;
-            if (trening.Aktivan)
+            if (trening.Aktivan && trening.Instruktor.Korisnik.JMBG.Equals(trenutniKorisnik.JMBG))
             {
                 if (txtDatum.Text != "")
                 {
@@ -73,13 +72,19 @@ namespace SR53_2020_POP2021.Windows
         }
         private void UpdateView()
         {
-            DGTreninzi.ItemsSource = null;
+            DGTreninziInstruktor.ItemsSource = null;
             view = CollectionViewSource.GetDefaultView(Util.Instance.Treninzi);
-            DGTreninzi.ItemsSource = view;
-            DGTreninzi.IsSynchronizedWithCurrentItem = true;
+            DGTreninziInstruktor.ItemsSource = view;
+            DGTreninziInstruktor.IsSynchronizedWithCurrentItem = true;
 
-            DGTreninzi.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
-            DGTreninzi.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
+            DGTreninziInstruktor.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+            DGTreninziInstruktor.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            HomeWindow homeWindow = new HomeWindow(trenutniKorisnik);
+            homeWindow.Show();
         }
 
         private void BtnDodaj_Click(object sender, RoutedEventArgs e)
@@ -96,24 +101,25 @@ namespace SR53_2020_POP2021.Windows
             this.Show();
         }
 
-        private void BtnIzmeni_Click(object sender, RoutedEventArgs e)
+        private void BtnIzbrisi_Click(object sender, RoutedEventArgs e)
         {
-            if (DGTreninzi.SelectedIndex != -1)
+            Trening selektovan = view.CurrentItem as Trening;
+            if (DGTreninziInstruktor.SelectedIndex != -1)
             {
-                Trening selektovanTrening = view.CurrentItem as Trening;
-                Trening stariTrening = selektovanTrening.Clone();
-
-                AddEditTraining addEditTraining = new AddEditTraining(trenutniKorisnik, selektovanTrening, EOdabraniStatus.IZMENI);
-                this.Hide();
-                if (!(bool)addEditTraining.ShowDialog())
+                if(selektovan.StatusTreninga.Equals(EStatusTreninga.SLOBODAN))
                 {
-                    int index = Util.Instance.Treninzi.ToList().FindIndex(k => k.ID.Equals(stariTrening.ID));
-                    Util.Instance.Treninzi[index] = stariTrening;
-                }
-                this.Show();
+                    if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovan.DatumTreninga + " " + selektovan.VremePocetkaTreninga} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
+                    {
 
-                view.Refresh();
-                DGTreninzi.SelectedItems.Clear();
+                        Util.Instance.BrisanjeTreninga(selektovan.ID);
+                        UpdateView();
+                        view.Refresh();
+                    }
+                } else
+                {
+                    MessageBox.Show("Mozete izbrisati samo slobodne treninge");
+                }
+
             }
             else
             {
@@ -121,25 +127,9 @@ namespace SR53_2020_POP2021.Windows
             }
         }
 
-        private void BtnIzbrisi_Click(object sender, RoutedEventArgs e)
+        private void DGTreninziInstruktor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            Trening selektovan = view.CurrentItem as Trening;
-            if (DGTreninzi.SelectedIndex != -1)
-            {
-
-                if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovan.DatumTreninga + " " + selektovan.VremePocetkaTreninga} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
-                {
-
-                    Util.Instance.BrisanjeTreninga(selektovan.ID);
-                    UpdateView();
-                    view.Refresh();
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Morate izabrati trening.");
-            }
+            
         }
 
         private void txtDatum_KeyUp(object sender, KeyEventArgs e)
@@ -160,16 +150,6 @@ namespace SR53_2020_POP2021.Windows
         private void CBStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             view.Refresh();
-        }
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            HomeWindow homeWindow = new HomeWindow(trenutniKorisnik);
-            homeWindow.Show();
-        }
-
-        private void DGTreninzi_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-
         }
     }
 }

@@ -23,7 +23,7 @@ namespace SR53_2020_POP2021.Windows
         private EOdabraniStatus izabraniStatus;
         private Trening izabranTrening;
         RegistrovaniKorisnik trenutniKorisnik;
-        public AddEditTraining(RegistrovaniKorisnik korisnik, Trening trening, EOdabraniStatus status = EOdabraniStatus.DODAJ)
+        public AddEditTraining(RegistrovaniKorisnik korisnik,Trening trening, EOdabraniStatus status = EOdabraniStatus.DODAJ)
         {
             InitializeComponent();
             this.DataContext = trening;
@@ -31,6 +31,7 @@ namespace SR53_2020_POP2021.Windows
             izabraniStatus = status;
             izabranTrening = trening;
             trenutniKorisnik = korisnik;
+
             TxtID.IsEnabled = false;
 
             CBStatus.ItemsSource = Enum.GetValues(typeof(EStatusTreninga));
@@ -44,11 +45,14 @@ namespace SR53_2020_POP2021.Windows
                     {
                         CBInstruktor.Items.Add(instruktor);
                     }
-                } else if (trenutniKorisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR) && trenutniKorisnik.JMBG.Equals(instruktor.Korisnik.JMBG))
+                } else if(trenutniKorisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
                 {
-                    CBInstruktor.Items.Add(instruktor);
+                    if (instruktor.Korisnik.Aktivan && instruktor.Korisnik.JMBG.Equals(trenutniKorisnik.JMBG))
+                    {
+                        CBInstruktor.Items.Add(instruktor);
+                    }
                 }
- 
+
             }
 
             foreach (Polaznik polaznik in Util.Instance.Polaznici)
@@ -83,8 +87,6 @@ namespace SR53_2020_POP2021.Windows
                 {
                     izabranTrening.Aktivan = true;
                     Util.Instance.Treninzi.Add(izabranTrening);
-
-
                 }
                 Util.Instance.SacuvajEntitet("treninzi.txt");
                 this.DialogResult = true;

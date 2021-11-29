@@ -136,20 +136,28 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnIzmeni_Click(object sender, RoutedEventArgs e)
         {
-            RegistrovaniKorisnik selektovaniKorisnik = view.CurrentItem as RegistrovaniKorisnik;
-            RegistrovaniKorisnik stariKorisnik = selektovaniKorisnik.Clone();
-
-            AddEditUserWindow addEditUser = new AddEditUserWindow(selektovaniKorisnik, EOdabraniStatus.IZMENI);
-            this.Hide();
-            if (!(bool)addEditUser.ShowDialog())
+            if(DGKorisnici.SelectedIndex != -1)
             {
-                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(stariKorisnik.JMBG));
-                Util.Instance.Korisnici[index] = stariKorisnik;
-            }
-            this.Show();
+                RegistrovaniKorisnik selektovaniKorisnik = view.CurrentItem as RegistrovaniKorisnik;
+                RegistrovaniKorisnik stariKorisnik = selektovaniKorisnik.Clone();
 
-            view.Refresh();
-            DGKorisnici.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
+                AddEditUserWindow addEditUser = new AddEditUserWindow(selektovaniKorisnik, EOdabraniStatus.IZMENI);
+                this.Hide();
+                if (!(bool)addEditUser.ShowDialog())
+                {
+                    int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(stariKorisnik.JMBG));
+                    Util.Instance.Korisnici[index] = stariKorisnik;
+                }
+                this.Show();
+
+                view.Refresh();
+                DGKorisnici.SelectedItems.Clear(); //da ne bira prvog u tabeli za brisanje
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati korisnika.");
+            }
+
         }
 
         private void BtnIzbrisi_Click(object sender, RoutedEventArgs e)

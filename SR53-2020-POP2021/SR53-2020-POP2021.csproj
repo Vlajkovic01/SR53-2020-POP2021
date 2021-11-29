@@ -88,6 +88,12 @@
     <Compile Include="Windows\AllTrainingWindow.xaml.cs">
       <DependentUpon>AllTrainingWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\InstructorsTrainingWindow.xaml.cs">
+      <DependentUpon>InstructorsTrainingWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MyProfileWindow.xaml.cs">
+      <DependentUpon>MyProfileWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +133,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\AllTrainingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\InstructorsTrainingWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MyProfileWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

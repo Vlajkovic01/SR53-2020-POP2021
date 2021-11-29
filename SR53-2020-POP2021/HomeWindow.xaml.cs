@@ -42,6 +42,8 @@ namespace SR53_2020_POP2021
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
+                MIProfil.Visibility = Visibility.Collapsed;
+                MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
 
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
@@ -50,6 +52,7 @@ namespace SR53_2020_POP2021
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
                 MITreninzi.Visibility = Visibility.Collapsed;
+                MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
 
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
@@ -58,11 +61,13 @@ namespace SR53_2020_POP2021
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
                 MIAdrese.Visibility = Visibility.Collapsed;
+                MITreninzi.Visibility = Visibility.Collapsed;
             }
             else if (korisnik.TipKorisnika.Equals(ETipKorisnika.ADMINISTRATOR))
             {
                 MIInstruktori.Visibility = Visibility.Collapsed;
                 MIPolaznici.Visibility = Visibility.Collapsed;
+                MIMojiTreninziInstruktor.Visibility = Visibility.Collapsed;
             }
 
         }
@@ -94,6 +99,20 @@ namespace SR53_2020_POP2021
         {
 
         }
+        private void MIProfil_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrovaniKorisnik stariKorisnik = trenutniKorisnik.Clone();
+
+            MyProfileWindow addEditUser = new MyProfileWindow(trenutniKorisnik, EOdabraniStatus.IZMENI);
+            this.Hide();
+            if (!(bool)addEditUser.ShowDialog())
+            {
+                int index = Util.Instance.Korisnici.ToList().FindIndex(k => k.JMBG.Equals(stariKorisnik.JMBG));
+                Util.Instance.Korisnici[index] = stariKorisnik;
+            }
+            this.Show();
+
+        }
 
         private void MITreninzi_Click(object sender, RoutedEventArgs e)
         {
@@ -101,6 +120,13 @@ namespace SR53_2020_POP2021
 
             this.Hide();
             atw.Show();
+        }
+        private void MIMojiTreninziInstruktor_Click(object sender, RoutedEventArgs e)
+        {
+            InstructorsTrainingWindow itw = new InstructorsTrainingWindow(trenutniKorisnik);
+
+            this.Hide();
+            itw.Show();
         }
 
         private void BtnOdjava_Click(object sender, RoutedEventArgs e)
