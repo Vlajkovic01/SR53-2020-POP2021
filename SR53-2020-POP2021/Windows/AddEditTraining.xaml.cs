@@ -55,14 +55,6 @@ namespace SR53_2020_POP2021.Windows
 
             }
 
-            foreach (Polaznik polaznik in Util.Instance.Polaznici)
-            {
-                if (polaznik.Korisnik.Aktivan)
-                {
-                    CBPolaznik.Items.Add(polaznik);
-                }
-            }
-
             if (status.Equals(EOdabraniStatus.IZMENI) && trening != null)
             {
                 this.Title = "Izmena treninga";
@@ -86,6 +78,7 @@ namespace SR53_2020_POP2021.Windows
                 if (izabraniStatus.Equals(EOdabraniStatus.DODAJ))
                 {
                     izabranTrening.Aktivan = true;
+                    izabranTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals("0000000000000"));
                     Util.Instance.Treninzi.Add(izabranTrening);
                 }
                 Util.Instance.SacuvajEntitet("treninzi.txt");

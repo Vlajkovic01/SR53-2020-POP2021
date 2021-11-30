@@ -19,7 +19,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
+
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Name="LblID" Content="ID: "/>
@@ -39,9 +39,6 @@
 
         <Label Grid.Column="0" Grid.Row="5" Name="LblInstruktor" Content="Instruktor: "/>
         <ComboBox Name="CBInstruktor" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Path=Instruktor}"/>
-
-        <Label Grid.Column="0" Grid.Row="6" Name="LblPolaznik" Content="Polaznik: "/>
-        <ComboBox Name="CBPolaznik" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding Path=Polaznik}"/>
 
         <Button Grid.Column="0" Grid.Row="7" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
         <Button Grid.Column="1" Grid.Row="7" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />

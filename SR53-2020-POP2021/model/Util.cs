@@ -142,7 +142,7 @@ namespace SR53_2020_POP2021.model
         }
         public int GenerisanjeIDAdrese()
         {
-            int counter = 1;
+            int counter = 0;
             foreach(Adresa adresa in Adrese)
             {
                 counter++;

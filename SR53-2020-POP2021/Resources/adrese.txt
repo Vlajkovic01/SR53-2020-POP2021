@@ -1,2 +1,3 @@
+0|||||False
 1|Luke Stevica|111/A|Loznica|Srbija|True
 2|Novosadska|115|Novi Sad|Srbija|True
