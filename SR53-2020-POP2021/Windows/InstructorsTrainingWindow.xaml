@@ -16,7 +16,8 @@
         <Label Content="Status:" Margin="310,0,-309.8,0"></Label>
         <ComboBox Name="CBStatus" Margin="310,26,370,365" SelectionChanged="CBStatus_SelectionChanged"></ComboBox>
         <Button Name="BtnDodaj" Content="Dodaj" Margin="725,0,20,390" Height="20" Click="BtnDodaj_Click"/>
-        <Button Name="BtnIzbrisi" Content="Izbrisi" Click="BtnIzbrisi_Click" Height="20" Margin="725,60,20,330"></Button>
+        <Button Name="BtnIzbrisi" Content="Izbrisi" Click="BtnIzbrisi_Click" Height="20" Margin="725,57,20,330"></Button>
+        <Button Name="BtnPregledajPolaznika" Content="Pregledaj polaznika" Click="BtnPregledajPolaznika_Click" Margin="659,31,19.6,364"/>
         <DataGrid CanUserAddRows="false" Name="DGTreninziInstruktor" HorizontalAlignment="left" Height="329" VerticalAlignment="Top" Width="794" Margin="0,91,-0.4,0"
                   AutoGeneratingColumn="DGTreninziInstruktor_AutoGeneratingColumn"/>
     </Grid>

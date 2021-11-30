@@ -126,7 +126,28 @@ namespace SR53_2020_POP2021.Windows
                 MessageBox.Show("Morate izabrati trening.");
             }
         }
+        private void BtnPregledajPolaznika_Click(object sender, RoutedEventArgs e)
+        {
+            Trening selektovan = view.CurrentItem as Trening;
+            if (DGTreninziInstruktor.SelectedIndex != -1)
+            {
+                if (selektovan.StatusTreninga.Equals(EStatusTreninga.REZERVISAN))
+                {
+                    ReviewPolaznikWindow reviewPolaznik = new ReviewPolaznikWindow(selektovan.Polaznik.Korisnik, trenutniKorisnik);
+                    this.Hide();
+                    reviewPolaznik.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Izaberite REZERVISAN trening.");
+                }
 
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati trening.");
+            }
+        }
         private void DGTreninziInstruktor_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             
@@ -151,5 +172,6 @@ namespace SR53_2020_POP2021.Windows
         {
             view.Refresh();
         }
+
     }
 }
