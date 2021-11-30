@@ -1,0 +1,23 @@
+﻿<Window x:Class="SR53_2020_POP2021.Windows.ReviewTrainingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SR53_2020_POP2021.Windows"
+        mc:Ignorable="d"
+        Title="ReviewTrainingWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Datum:" Margin="10,0,-9.8,0"></Label>
+        <TextBox Name="txtDatum" HorizontalAlignment="Left" Height="23" Margin="10,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" KeyUp="txtDatum_KeyUp"/>
+        <Label Content="Vreme:" Margin="112,0,-111.8,0"></Label>
+        <TextBox Name="txtVreme" HorizontalAlignment="Left" Height="23" Margin="110,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" KeyUp="txtVreme_KeyUp"/>
+        <Label Content="Trajanje:" Margin="210,0,-209.8,0"></Label>
+        <TextBox Name="txtTrajanje" HorizontalAlignment="Left" Height="23" Margin="210,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="75" KeyUp="txtTrajanje_KeyUp"/>
+        <Label Content="Status:" Margin="310,0,-309.8,0"></Label>
+        <ComboBox Name="CBStatus" Margin="310,26,370,365" SelectionChanged="CBStatus_SelectionChanged"></ComboBox>
+        <Button Name="BtnRezervisi" Content="Rezervisi trening" Margin="681,10,9.6,383" Click="BtnRezervisi_Click"/>
+        <Button Name="BtnOtkazi" Content="Otkazi trening" Click="BtnOtkazi_Click" Margin="681,51,9.6,342"/>
+        <DataGrid CanUserAddRows="false" Name="DGTreninzi" HorizontalAlignment="left" Height="329" VerticalAlignment="Top" Width="794" Margin="0,91,-0.4,0"
+                  AutoGeneratingColumn="DGTreninzi_AutoGeneratingColumn"/>
+    </Grid>
+</Window>

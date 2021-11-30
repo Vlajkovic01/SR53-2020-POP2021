@@ -100,6 +100,9 @@
     <Compile Include="Windows\ReviewInstructorsWindow.xaml.cs">
       <DependentUpon>ReviewInstructorsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ReviewTrainingWindow.xaml.cs">
+      <DependentUpon>ReviewTrainingWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="HomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ReviewInstructorsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ReviewTrainingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

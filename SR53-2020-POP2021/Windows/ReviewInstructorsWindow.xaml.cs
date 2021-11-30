@@ -98,7 +98,25 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnTreninzi_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (DGInstruktori.SelectedIndex != -1)
+            {
+                RegistrovaniKorisnik selektovanInstruktor = view.CurrentItem as RegistrovaniKorisnik;
+
+                ReviewTrainingWindow review = new ReviewTrainingWindow(trenutniKorisnik, selektovanInstruktor);
+                this.Hide();
+                if (!(bool)review.ShowDialog())
+                {
+
+                }
+                this.Show();
+
+                view.Refresh();
+                DGInstruktori.SelectedItems.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati instruktora.");
+            }
         }
 
         private void DGInstruktori_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
