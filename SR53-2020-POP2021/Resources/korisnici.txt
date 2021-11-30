@@ -3,3 +3,4 @@ Stefan|Vlajkovic|1234567891234|MUSKI|1|vlajkovic@gmail.com|12345|ADMINISTRATOR|T
 Janko|Jankovic|1234567810101|MUSKI|2|jankovic@gmail.com|12345|POLAZNIK|True
 Nikola|Nikolic|9876543219876|MUSKI|1|nikolic@gmail.com|12345|INSTRUKTOR|True
 Marko|Markovic|1122334455667|MUSKI|2|markovic@gmail.com|12345|INSTRUKTOR|True
+Darko|Panic|1234567899999|MUSKI|2|panic@gmail.com|12345|POLAZNIK|True

@@ -84,12 +84,52 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnRezervisi_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DGTreninzi.SelectedIndex != -1)
+            {
+                Trening selektovanTrening = view.CurrentItem as Trening;
+                if(selektovanTrening.StatusTreninga.Equals(EStatusTreninga.SLOBODAN))
+                {
+                    selektovanTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals(trenutniKorisnik.JMBG)); // kad ne stavim ovako menja svim treninzima polaznika
+                    selektovanTrening.StatusTreninga = EStatusTreninga.REZERVISAN;
+                    Util.Instance.SacuvajEntitet("treninzi.txt");
+                } else
+                {
+                    MessageBox.Show("Morate izabrati SLOBODAN trening.");
+                }
+                
+                view.Refresh();
+                DGTreninzi.SelectedItems.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati trening.");
+            }
         }
 
         private void BtnOtkazi_Click(object sender, RoutedEventArgs e)
         {
+            if (DGTreninzi.SelectedIndex != -1)
+            {
+                Trening selektovanTrening = view.CurrentItem as Trening;
+                if (selektovanTrening.StatusTreninga.Equals(EStatusTreninga.REZERVISAN) && selektovanTrening.Polaznik.Korisnik.JMBG.Equals(trenutniKorisnik.JMBG))
+                {
 
+                    selektovanTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals("0000000000000")); // stavlja nultog polaznika tj kao da nema polaznika
+                    selektovanTrening.StatusTreninga = EStatusTreninga.SLOBODAN;
+                    Util.Instance.SacuvajEntitet("treninzi.txt");
+                }
+                else
+                {
+                    MessageBox.Show("Morate izabrati SVOJ REZERVISAN trening.");
+                }
+
+                view.Refresh();
+                DGTreninzi.SelectedItems.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Morate izabrati trening.");
+            }
         }
 
         private void txtDatum_KeyUp(object sender, KeyEventArgs e)

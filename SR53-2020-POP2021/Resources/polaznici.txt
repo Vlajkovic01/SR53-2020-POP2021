@@ -1,2 +1,3 @@
 ||0000000000000|MUSKI|0|@gmail.com|0|POLAZNIK|False
 Janko|Jankovic|1234567810101|MUSKI|2|jankovic@gmail.com|12345|POLAZNIK|True
+Darko|Panic|1234567899999|MUSKI|2|panic@gmail.com|12345|POLAZNIK|True
