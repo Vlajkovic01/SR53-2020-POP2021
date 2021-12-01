@@ -137,7 +137,6 @@ namespace SR53_2020_POP2021.Windows
                     ispravno = false;
                 }
             }
-
             if (CBPol.SelectedItem == null)
             {
                 poruka += "- Niste odabrali Pol korisnika" + "\n";
@@ -148,7 +147,7 @@ namespace SR53_2020_POP2021.Windows
                 poruka += "- Niste uneli Adresu" + "\n";
                 ispravno = false;
             }
-            if (TxtEmail.Text.Equals("") || !TxtEmail.Text.Contains("@gmail.com"))
+            if (TxtEmail.Text.Equals("") || !TxtEmail.Text.Contains("@") || !TxtEmail.Text.EndsWith(".com"))
             {
                 poruka += "- Niste pravilno uneli Email" + "\n";
                 ispravno = false;

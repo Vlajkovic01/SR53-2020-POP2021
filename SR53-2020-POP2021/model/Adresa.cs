@@ -57,21 +57,6 @@ namespace SR53_2020_POP2021.model
             set { aktivna = value; }
         }
 
-
-        //public Adresa()
-        //{
-
-        //}
-
-        //public Adresa(int id, string ulica, string broj, string grad, string drzava)
-        //{
-        //    ID = id;
-        //    Ulica = ulica;
-        //    Broj = broj;
-        //    Grad = grad;
-        //    Drzava = drzava;
-        //}
-
         public string AdresaZaUpisUFajl()
         {
             return ID + "|" + Ulica + "|" + Broj + "|" + Grad + "|" + Drzava + "|" + Aktivna;
