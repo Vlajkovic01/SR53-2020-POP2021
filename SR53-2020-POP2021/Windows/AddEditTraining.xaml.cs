@@ -32,8 +32,6 @@ namespace SR53_2020_POP2021.Windows
             izabranTrening = trening;
             trenutniKorisnik = korisnik;
 
-            TxtID.IsEnabled = false;
-
             CBStatus.ItemsSource = Enum.GetValues(typeof(EStatusTreninga));
 
             

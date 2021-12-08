@@ -29,7 +29,6 @@ namespace SR53_2020_POP2021.Windows
 
             izabraniStatus = status;
             izabranaAdresa = adresa;
-            TxtID.IsEnabled = false;
 
             if (status.Equals(EOdabraniStatus.IZMENI) && adresa != null)
             {

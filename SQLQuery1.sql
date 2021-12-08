@@ -148,3 +148,5 @@ select *
 from adrese
 select *
 from treninzi
+select *
+from centri

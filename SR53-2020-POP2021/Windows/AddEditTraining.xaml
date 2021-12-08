@@ -18,29 +18,25 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
 
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Name="LblID" Content="ID: "/>
-        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtID" Text="{Binding Path=ID}" />
+        <Label Grid.Column="0" Grid.Row="0" Name="LblDatum" Content="Datum(dd.mm.yyyy): "/>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtDatum" Text="{Binding Path=DatumTreninga}" />
 
-        <Label Grid.Column="0" Grid.Row="1" Name="LblDatum" Content="Datum(dd.mm.yyyy): "/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtDatum" Text="{Binding Path=DatumTreninga}" />
+        <Label Grid.Column="0" Grid.Row="1" Name="LblVreme" Content="Vreme pocetka(hh:mm): "/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtVreme" Text="{Binding Path=VremePocetkaTreninga}" />
 
-        <Label Grid.Column="0" Grid.Row="2" Name="LblVreme" Content="Vreme pocetka(hh:mm): "/>
-        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtVreme" Text="{Binding Path=VremePocetkaTreninga}" />
+        <Label Grid.Column="0" Grid.Row="2" Name="LblTrajanje" Content="Trajanje(minuti): "/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtTrajanje" Text="{Binding Path=TrajanjeTreninga}" />
 
-        <Label Grid.Column="0" Grid.Row="3" Name="LblTrajanje" Content="Trajanje(minuti): "/>
-        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtTrajanje" Text="{Binding Path=TrajanjeTreninga}" />
+        <Label Grid.Column="0" Grid.Row="3" Name="LblStatus" Content="Status: "/>
+        <ComboBox Name="CBStatus" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding Path=StatusTreninga}"/>
 
-        <Label Grid.Column="0" Grid.Row="4" Name="LblStatus" Content="Status: "/>
-        <ComboBox Name="CBStatus" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Path=StatusTreninga}"/>
+        <Label Grid.Column="0" Grid.Row="4" Name="LblInstruktor" Content="Instruktor: "/>
+        <ComboBox Name="CBInstruktor" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Path=Instruktor}"/>
 
-        <Label Grid.Column="0" Grid.Row="5" Name="LblInstruktor" Content="Instruktor: "/>
-        <ComboBox Name="CBInstruktor" Grid.Column="1" Grid.Row="5" SelectedItem="{Binding Path=Instruktor}"/>
-
-        <Button Grid.Column="0" Grid.Row="7" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
-        <Button Grid.Column="1" Grid.Row="7" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />
+        <Button Grid.Column="0" Grid.Row="5" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
+        <Button Grid.Column="1" Grid.Row="5" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />
     </Grid>
 </Window>

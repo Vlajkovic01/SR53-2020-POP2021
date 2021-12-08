@@ -17,25 +17,21 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Name="LblID" Content="ID: "/>
-        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtID" Text="{Binding Path=ID}" />
-
-        <Label Grid.Column="0" Grid.Row="1" Name="LblUlica" Content="Ulica: "/>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtUlica" Text="{Binding Path=Ulica}" />
+        <Label Grid.Column="0" Grid.Row="0" Name="LblUlica" Content="Ulica: "/>
+        <TextBox Grid.Column="1" Grid.Row="0" Name="TxtUlica" Text="{Binding Path=Ulica}" />
   
-        <Label Grid.Column="0" Grid.Row="2" Name="LblBroj" Content="Broj: "/>
-        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtBroj" Text="{Binding Path=Broj}" />
+        <Label Grid.Column="0" Grid.Row="1" Name="LblBroj" Content="Broj: "/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="TxtBroj" Text="{Binding Path=Broj}" />
 
-        <Label Grid.Column="0" Grid.Row="3" Name="LblGrad" Content="Grad: "/>
-        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtGrad" Text="{Binding Path=Grad}" />
+        <Label Grid.Column="0" Grid.Row="2" Name="LblGrad" Content="Grad: "/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="TxtGrad" Text="{Binding Path=Grad}" />
 
-        <Label Grid.Column="0" Grid.Row="4" Name="LblDrzava" Content="Drzava: "/>
-        <TextBox Grid.Column="1" Grid.Row="4" Name="TxtDrzava" Text="{Binding Path=Drzava}" />
+        <Label Grid.Column="0" Grid.Row="3" Name="LblDrzava" Content="Drzava: "/>
+        <TextBox Grid.Column="1" Grid.Row="3" Name="TxtDrzava" Text="{Binding Path=Drzava}" />
 
-        <Button Grid.Column="0" Grid.Row="5" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
-        <Button Grid.Column="1" Grid.Row="5" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />
+        <Button Grid.Column="0" Grid.Row="4" Content="Otkazi" Name="BtnOtkazi" Click="BtnOtkazi_Click" />
+        <Button Grid.Column="1" Grid.Row="4" Content="Ok" Name="BtnOk" Click="BtnOk_Click" />
     </Grid>
 </Window>
