@@ -56,10 +56,12 @@ namespace SR53_2020_POP2021.Windows
                 {
                     izabranaAdresa.Aktivna = true;
                     Util.Instance.Adrese.Add(izabranaAdresa);
-
-
+                    Util.Instance.SacuvajEntitet(izabranaAdresa);
                 }
-                Util.Instance.SacuvajEntitet("adrese.txt");
+                else if (izabraniStatus.Equals(EOdabraniStatus.IZMENI))
+                {
+                    Util.Instance.IzmeniEntitet(izabranaAdresa);
+                }
                 this.DialogResult = true;
                 this.Close();
             }

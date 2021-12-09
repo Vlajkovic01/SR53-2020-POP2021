@@ -18,6 +18,8 @@ namespace SR53_2020_POP2021.model
         private IEntitet adresaService;
         private IEntitet centarService;
 
+        public static string CONNECTION_STRING = "Data Source=STEFAN\\SQLEXPRESS;Initial Catalog=SR53_2020_POP2021;Integrated Security=True";
+
         public ObservableCollection<RegistrovaniKorisnik> Korisnici { get; set; }
         public ObservableCollection<Instruktor> Instruktori { get; set; }
         public ObservableCollection<Polaznik> Polaznici { get; set; }
@@ -56,31 +58,61 @@ namespace SR53_2020_POP2021.model
             Centri = new ObservableCollection<Centar>();
         }
 
-        public void SacuvajEntitet(string filename)
+        public void SacuvajEntitet(Object obj)
         {
-            if (filename.Contains("korisnici"))
+            if (obj is RegistrovaniKorisnik)
             {
-                regKorisnikService.SacuvajEntitet(filename);
+                regKorisnikService.SacuvajEntitet(obj);
             }
-            else if (filename.Contains("instruktori"))
+            else if (obj is Instruktor)
             {
-                instruktorService.SacuvajEntitet(filename);
+                instruktorService.SacuvajEntitet(obj);
             }
-            else if (filename.Contains("polaznici"))
+            else if (obj is Polaznik)
             {
-                polaznikService.SacuvajEntitet(filename);
+                polaznikService.SacuvajEntitet(obj);
             }
-            else if (filename.Contains("adrese"))
+            else if (obj is Adresa)
             {
-                adresaService.SacuvajEntitet(filename);
+                adresaService.SacuvajEntitet(obj);
             }
-            else if (filename.Contains("treninzi"))
+            else if (obj is Trening)
             {
-                treningService.SacuvajEntitet(filename);
+                treningService.SacuvajEntitet(obj);
             }
-            else if (filename.Contains("centri"))
+            else if (obj is Centar)
             {
-                centarService.SacuvajEntitet(filename);
+                centarService.SacuvajEntitet(obj);
+            }
+        }
+
+        public void IzmeniEntitet(Object obj)
+        {
+            if (obj is RegistrovaniKorisnik)
+            {
+                regKorisnikService.IzmeniEntitet(obj);
+            }
+            else if (obj is Instruktor)
+            {
+                instruktorService.IzmeniEntitet(obj);
+                regKorisnikService.IzmeniEntitet(obj);
+            }
+            else if (obj is Polaznik)
+            {
+                polaznikService.IzmeniEntitet(obj);
+                regKorisnikService.IzmeniEntitet(obj);
+            }
+            else if (obj is Adresa)
+            {
+                adresaService.IzmeniEntitet(obj);
+            }
+            else if (obj is Trening)
+            {
+                treningService.IzmeniEntitet(obj);
+            }
+            else if (obj is Centar)
+            {
+                centarService.IzmeniEntitet(obj);
             }
         }
 

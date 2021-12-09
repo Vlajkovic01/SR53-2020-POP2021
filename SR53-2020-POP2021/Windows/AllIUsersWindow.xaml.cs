@@ -170,7 +170,7 @@ namespace SR53_2020_POP2021.Windows
                 {
                     if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovani.Ime + " " + selektovani.Prezime} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
                     {
-
+                        selektovani.Aktivan = false;
                         Util.Instance.BrisanjeKorisnika(selektovani.JMBG);
                         UpdateView();
                         view.Refresh();

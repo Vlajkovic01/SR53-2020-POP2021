@@ -75,10 +75,8 @@ namespace SR53_2020_POP2021.Windows
 
             if (Validacija())
             {
-                
-                Util.Instance.SacuvajEntitet("instruktori.txt");
-                Util.Instance.SacuvajEntitet("polaznici.txt");
-                Util.Instance.SacuvajEntitet("korisnici.txt");
+
+                Util.Instance.IzmeniEntitet(izabraniKorisnik);
 
                 this.DialogResult = true;
                 this.Close();

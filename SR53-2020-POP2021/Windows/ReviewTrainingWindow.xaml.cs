@@ -91,7 +91,7 @@ namespace SR53_2020_POP2021.Windows
                 {
                     selektovanTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals(trenutniKorisnik.JMBG)); // kad ne stavim ovako menja svim treninzima polaznika
                     selektovanTrening.StatusTreninga = EStatusTreninga.REZERVISAN;
-                    Util.Instance.SacuvajEntitet("treninzi.txt");
+                    Util.Instance.IzmeniEntitet(selektovanTrening);
                 } else
                 {
                     MessageBox.Show("Morate izabrati SLOBODAN trening.");
@@ -116,7 +116,7 @@ namespace SR53_2020_POP2021.Windows
 
                     selektovanTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals("0000000000000")); // stavlja nultog polaznika tj kao da nema polaznika
                     selektovanTrening.StatusTreninga = EStatusTreninga.SLOBODAN;
-                    Util.Instance.SacuvajEntitet("treninzi.txt");
+                    Util.Instance.IzmeniEntitet(selektovanTrening);
                 }
                 else
                 {

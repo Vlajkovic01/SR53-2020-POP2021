@@ -32,11 +32,6 @@ namespace SR53_2020_POP2021.Windows
             CBPol.ItemsSource = Enum.GetValues(typeof(EPol));
             CBTipKorisnika.ItemsSource = Enum.GetValues(typeof(ETipKorisnika));
 
-            if(status.Equals(EOdabraniStatus.IZMENI))
-            {
-                TxtJMBG.IsEnabled = false;
-            }
-
             izabraniStatus = status;
             izabraniKorisnik = korisnik;
 
@@ -66,42 +61,51 @@ namespace SR53_2020_POP2021.Windows
 
         private void BtnOk_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (Validacija())
             {
                 if (izabraniStatus.Equals(EOdabraniStatus.DODAJ))
                 {
-                    
+
                     if (izabraniKorisnik.TipKorisnika.Equals(ETipKorisnika.POLAZNIK))
                     {
                         izabraniKorisnik.Aktivan = true;
                         Polaznik noviPolaznik = new Polaznik
-                        {   
+                        {
                             Korisnik = izabraniKorisnik,
                             ListaRezervisanihTreninga = new ObservableCollection<Trening>()
                         };
                         Util.Instance.Korisnici.Add(izabraniKorisnik);
                         Util.Instance.Polaznici.Add(noviPolaznik);
+                        Util.Instance.SacuvajEntitet(izabraniKorisnik);
+                        Util.Instance.SacuvajEntitet(noviPolaznik);
                     }
                     else if (izabraniKorisnik.TipKorisnika.Equals(ETipKorisnika.INSTRUKTOR))
                     {
                         izabraniKorisnik.Aktivan = true;
                         Instruktor noviInstruktor = new Instruktor
-                        {   
+                        {
                             Korisnik = izabraniKorisnik,
                             ListaTreninga = new ObservableCollection<Trening>()
                         };
                         Util.Instance.Korisnici.Add(izabraniKorisnik);
                         Util.Instance.Instruktori.Add(noviInstruktor);
-                    } else
+                        Util.Instance.SacuvajEntitet(izabraniKorisnik);
+                        Util.Instance.SacuvajEntitet(noviInstruktor);
+                    }
+                    else
                     {
                         izabraniKorisnik.Aktivan = true;
                         Util.Instance.Korisnici.Add(izabraniKorisnik);
+                        Util.Instance.SacuvajEntitet(izabraniKorisnik);
                     }
                 }
-                Util.Instance.SacuvajEntitet("instruktori.txt");
-                Util.Instance.SacuvajEntitet("polaznici.txt");
-                Util.Instance.SacuvajEntitet("korisnici.txt");
+                else if (izabraniStatus.Equals(EOdabraniStatus.IZMENI))
+                {
+                    TxtJMBG.IsEnabled = false;
+                    Util.Instance.IzmeniEntitet(izabraniKorisnik);
+                }
+
 
                 this.DialogResult = true;
                 this.Close();

@@ -138,7 +138,7 @@ namespace SR53_2020_POP2021.Windows
 
                 if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovana.Ulica + " " + selektovana.Broj} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
                 {
-
+                    selektovana.Aktivna = false;
                     Util.Instance.BrisanjeAdrese(selektovana.ID);
                     UpdateView();
                     view.Refresh();

@@ -78,8 +78,12 @@ namespace SR53_2020_POP2021.Windows
                     izabranTrening.Aktivan = true;
                     izabranTrening.Polaznik = Util.Instance.Polaznici.ToList().Find(k => k.Korisnik.JMBG.Equals("0000000000000"));
                     Util.Instance.Treninzi.Add(izabranTrening);
+                    Util.Instance.SacuvajEntitet(izabranTrening);
                 }
-                Util.Instance.SacuvajEntitet("treninzi.txt");
+                else if (izabraniStatus.Equals(EOdabraniStatus.IZMENI))
+                {
+                    Util.Instance.IzmeniEntitet(izabranTrening);
+                }
                 this.DialogResult = true;
                 this.Close();
             }

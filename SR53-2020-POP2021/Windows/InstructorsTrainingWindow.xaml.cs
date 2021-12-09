@@ -110,7 +110,7 @@ namespace SR53_2020_POP2021.Windows
                 {
                     if (MessageBox.Show($"Da li ste sigurni da zelite da obrisete?{selektovan.DatumTreninga + " " + selektovan.VremePocetkaTreninga} ", "Potvrda", MessageBoxButton.YesNo).Equals(MessageBoxResult.Yes))
                     {
-
+                        selektovan.Aktivan = false;
                         Util.Instance.BrisanjeTreninga(selektovan.ID);
                         UpdateView();
                         view.Refresh();
