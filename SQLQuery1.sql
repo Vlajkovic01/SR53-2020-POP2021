@@ -76,29 +76,13 @@ CREATE TABLE treninzi(
 	--constraint trening_polaznik_fk foreign key (Polaznik_JMBG) references polaznici(JMBG),
 );
 
--- Izmena postojecih podataka 
-alter table treninzi
-alter column vreme varchar(10)
-
--- dodavanje ogranicenja
-alter table korisnici
-add constraint korisnik_jmbg_uq unique (JMBG);
-
--- brisanje ogranicenja
-alter table instruktori
-drop constraint instruktor_jmbg_uq;
-alter table polaznici
-drop constraint polaznik_jmbg_uq;
-alter table korisnici
-drop constraint korisnik_jmbg_uq;
-
 -- brisanje tabela
 drop table korisnici
-drop table adrese
 drop table polaznici
 drop table instruktori
 drop table centri
 drop table treninzi
+drop table adrese
 
 -- Dodavanje vrednosti
 insert into centri values
@@ -123,9 +107,6 @@ insert into korisnici values
 	('Marko', 'Markovic', '1122334455667', 'MUSKI', 2, 'markovic@gmail.com', '12345', 'INSTRUKTOR', 'True')
 insert into korisnici values
 	('Darko', 'Panic', '1234567899999', 'MUSKI', 2, 'panic@gmail.com', '12345', 'POLAZNIK', 'True')
--- Test
-insert into korisnici values
-	('Test', 'Test', '1111122222333', 'MUSKI', 2, 'panic@gmail.com', '12345', 'ADMINISTRATOR', 'True')
 
 insert into instruktori values
 	('Marko', 'Markovic', '1122334455667', 'MUSKI', 2, 'markovic@gmail.com', '12345', 'INSTRUKTOR', 'True')
