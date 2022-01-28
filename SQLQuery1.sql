@@ -1,5 +1,7 @@
  -- Pravljenje baze podataka
+DROP DATABASE IF EXISTS SR53_2020_POP2021;
 CREATE DATABASE SR53_2020_POP2021;
+USE SR53_2020_POP2021;
 
 -- Pravljenje tabela
 CREATE TABLE adrese(
@@ -75,14 +77,6 @@ CREATE TABLE treninzi(
 	--constraint trening_instruktor_fk foreign key (Instruktor_JMBG) references instruktori(JMBG),
 	--constraint trening_polaznik_fk foreign key (Polaznik_JMBG) references polaznici(JMBG),
 );
-
--- brisanje tabela
-drop table korisnici
-drop table polaznici
-drop table instruktori
-drop table centri
-drop table treninzi
-drop table adrese
 
 -- Dodavanje vrednosti
 insert into centri values
