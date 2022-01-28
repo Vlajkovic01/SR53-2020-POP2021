@@ -50,7 +50,11 @@ namespace SR53_2020_POP2021
                 if (prijavljenKorisnik == null)
                 {
                     MessageBox.Show("Pogresni podaci prijave!");
-                } 
+                }
+                else if(prijavljenKorisnik.Aktivan == false)
+                {
+                    MessageBox.Show("Niste vise deo teretane, Vas nalog je izbrisan!");
+                }
                 else if(prijavljenKorisnik != null && prijavljenKorisnik.Aktivan == true)
                 {
                     HomeWindow hw = new HomeWindow(prijavljenKorisnik);
